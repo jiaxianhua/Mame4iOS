@@ -1,0 +1,4384 @@
+.
+├── build
+│   ├── build.mak
+│   ├── file2str.c
+│   ├── png2bdc.c
+│   └── verinfo.c
+├── emu
+│   ├── addrmap.c
+│   ├── addrmap.h
+│   ├── attotime.c
+│   ├── attotime.h
+│   ├── audio
+│   │   ├── generic.c
+│   │   └── generic.h
+│   ├── audit.c
+│   ├── audit.h
+│   ├── cheat.c
+│   ├── cheat.h
+│   ├── clifront.c
+│   ├── clifront.h
+│   ├── config.c
+│   ├── config.h
+│   ├── cpu
+│   │   ├── adsp2100
+│   │   │   ├── 2100dasm.c
+│   │   │   ├── 2100ops.c
+│   │   │   ├── adsp2100.c
+│   │   │   └── adsp2100.h
+│   │   ├── alph8201
+│   │   │   ├── 8201dasm.c
+│   │   │   ├── alph8201.c
+│   │   │   └── alph8201.h
+│   │   ├── am29000
+│   │   │   ├── am29000.c
+│   │   │   ├── am29000.h
+│   │   │   ├── am29dasm.c
+│   │   │   └── am29ops.h
+│   │   ├── apexc
+│   │   │   ├── apexc.c
+│   │   │   ├── apexc.h
+│   │   │   └── apexcdsm.c
+│   │   ├── arm
+│   │   │   ├── arm.c
+│   │   │   ├── arm.h
+│   │   │   └── armdasm.c
+│   │   ├── arm7
+│   │   │   ├── arm7.c
+│   │   │   ├── arm7.h
+│   │   │   ├── arm7core.c
+│   │   │   ├── arm7core.h
+│   │   │   ├── arm7dasm.c
+│   │   │   └── arm7exec.c
+│   │   ├── asap
+│   │   │   ├── asap.c
+│   │   │   ├── asap.h
+│   │   │   └── asapdasm.c
+│   │   ├── avr8
+│   │   │   ├── avr8.c
+│   │   │   ├── avr8.h
+│   │   │   └── avr8dasm.c
+│   │   ├── ccpu
+│   │   │   ├── ccpu.c
+│   │   │   ├── ccpu.h
+│   │   │   └── ccpudasm.c
+│   │   ├── cdp1802
+│   │   │   ├── 1802dasm.c
+│   │   │   ├── cdp1802.c
+│   │   │   └── cdp1802.h
+│   │   ├── cop400
+│   │   │   ├── cop400.c
+│   │   │   ├── cop400.h
+│   │   │   ├── cop400op.c
+│   │   │   ├── cop410ds.c
+│   │   │   ├── cop420ds.c
+│   │   │   └── cop440ds.c
+│   │   ├── cp1610
+│   │   │   ├── 1610dasm.c
+│   │   │   ├── cp1610.c
+│   │   │   └── cp1610.h
+│   │   ├── cpu.mak
+│   │   ├── cubeqcpu
+│   │   │   ├── cubedasm.c
+│   │   │   ├── cubeqcpu.c
+│   │   │   └── cubeqcpu.h
+│   │   ├── drcbec.c
+│   │   ├── drcbeut.c
+│   │   ├── drcbeut.h
+│   │   ├── drcbex64.c
+│   │   ├── drcbex86.c
+│   │   ├── drccache.c
+│   │   ├── drccache.h
+│   │   ├── drcfe.c
+│   │   ├── drcfe.h
+│   │   ├── drcuml.c
+│   │   ├── drcuml.h
+│   │   ├── drcumlsh.h
+│   │   ├── dsp32
+│   │   │   ├── dsp32.c
+│   │   │   ├── dsp32.h
+│   │   │   ├── dsp32dis.c
+│   │   │   └── dsp32ops.c
+│   │   ├── dsp56k
+│   │   │   ├── dsp56def.h
+│   │   │   ├── dsp56dsm.c
+│   │   │   ├── dsp56k.c
+│   │   │   ├── dsp56k.h
+│   │   │   ├── dsp56mem.c
+│   │   │   ├── dsp56mem.h
+│   │   │   ├── dsp56ops.c
+│   │   │   ├── dsp56pcu.c
+│   │   │   ├── dsp56pcu.h
+│   │   │   ├── inst.c
+│   │   │   ├── inst.h
+│   │   │   ├── opcode.c
+│   │   │   ├── opcode.h
+│   │   │   ├── pmove.c
+│   │   │   ├── pmove.h
+│   │   │   ├── tables.c
+│   │   │   └── tables.h
+│   │   ├── e132xs
+│   │   │   ├── 32xsdasm.c
+│   │   │   ├── e132xs.c
+│   │   │   ├── e132xs.h
+│   │   │   └── e132xsop.c
+│   │   ├── esrip
+│   │   │   ├── esrip.c
+│   │   │   ├── esrip.h
+│   │   │   └── esripdsm.c
+│   │   ├── f8
+│   │   │   ├── f8.c
+│   │   │   ├── f8.h
+│   │   │   └── f8dasm.c
+│   │   ├── g65816
+│   │   │   ├── g65816.c
+│   │   │   ├── g65816.h
+│   │   │   ├── g65816cm.h
+│   │   │   ├── g65816ds.c
+│   │   │   ├── g65816ds.h
+│   │   │   ├── g65816o0.c
+│   │   │   ├── g65816o1.c
+│   │   │   ├── g65816o2.c
+│   │   │   ├── g65816o3.c
+│   │   │   ├── g65816o4.c
+│   │   │   └── g65816op.h
+│   │   ├── h6280
+│   │   │   ├── 6280dasm.c
+│   │   │   ├── h6280.c
+│   │   │   ├── h6280.h
+│   │   │   ├── h6280ops.h
+│   │   │   └── tblh6280.c
+│   │   ├── h83002
+│   │   │   ├── h8.h
+│   │   │   ├── h8_16.c
+│   │   │   ├── h8_8.c
+│   │   │   ├── h8disasm.c
+│   │   │   ├── h8ops.h
+│   │   │   ├── h8periph.c
+│   │   │   └── h8priv.h
+│   │   ├── hd6309
+│   │   │   ├── 6309dasm.c
+│   │   │   ├── 6309ops.c
+│   │   │   ├── 6309tbl.c
+│   │   │   ├── hd6309.c
+│   │   │   └── hd6309.h
+│   │   ├── i386
+│   │   │   ├── cycles.h
+│   │   │   ├── i386.c
+│   │   │   ├── i386.h
+│   │   │   ├── i386dasm.c
+│   │   │   ├── i386op16.c
+│   │   │   ├── i386op32.c
+│   │   │   ├── i386ops.c
+│   │   │   ├── i386ops.h
+│   │   │   ├── i386priv.h
+│   │   │   ├── i486ops.c
+│   │   │   ├── pentops.c
+│   │   │   └── x87ops.c
+│   │   ├── i4004
+│   │   │   ├── 4004dasm.c
+│   │   │   ├── i4004.c
+│   │   │   └── i4004.h
+│   │   ├── i8008
+│   │   │   ├── 8008dasm.c
+│   │   │   ├── i8008.c
+│   │   │   └── i8008.h
+│   │   ├── i8085
+│   │   │   ├── 8085dasm.c
+│   │   │   ├── i8085.c
+│   │   │   ├── i8085.h
+│   │   │   └── i8085cpu.h
+│   │   ├── i86
+│   │   │   ├── ea.h
+│   │   │   ├── host.h
+│   │   │   ├── i286.c
+│   │   │   ├── i286.h
+│   │   │   ├── i86.c
+│   │   │   ├── i86.h
+│   │   │   ├── i86.txt
+│   │   │   ├── i86mem.c
+│   │   │   ├── i86mem.h
+│   │   │   ├── i86priv.h
+│   │   │   ├── i86time.c
+│   │   │   ├── instr186.c
+│   │   │   ├── instr186.h
+│   │   │   ├── instr286.c
+│   │   │   ├── instr286.h
+│   │   │   ├── instr86.c
+│   │   │   ├── instr86.h
+│   │   │   ├── modrm.h
+│   │   │   ├── table186.h
+│   │   │   ├── table286.h
+│   │   │   └── table86.h
+│   │   ├── i860
+│   │   │   ├── i860.c
+│   │   │   ├── i860.h
+│   │   │   ├── i860dasm.c
+│   │   │   ├── i860dec.c
+│   │   │   └── i860dis.c
+│   │   ├── i960
+│   │   │   ├── i960.c
+│   │   │   ├── i960.h
+│   │   │   ├── i960dis.c
+│   │   │   └── i960dis.h
+│   │   ├── jaguar
+│   │   │   ├── jagdasm.c
+│   │   │   ├── jaguar.c
+│   │   │   └── jaguar.h
+│   │   ├── konami
+│   │   │   ├── knmidasm.c
+│   │   │   ├── konami.c
+│   │   │   ├── konami.h
+│   │   │   ├── konamops.c
+│   │   │   └── konamtbl.c
+│   │   ├── lh5801
+│   │   │   ├── 5801dasm.c
+│   │   │   ├── 5801tbl.c
+│   │   │   ├── lh5801.c
+│   │   │   └── lh5801.h
+│   │   ├── lr35902
+│   │   │   ├── lr35902.c
+│   │   │   ├── lr35902.h
+│   │   │   ├── lr35902d.c
+│   │   │   ├── opc_cb.h
+│   │   │   └── opc_main.h
+│   │   ├── m37710
+│   │   │   ├── m37710.c
+│   │   │   ├── m37710.h
+│   │   │   ├── m37710cm.h
+│   │   │   ├── m37710o0.c
+│   │   │   ├── m37710o1.c
+│   │   │   ├── m37710o2.c
+│   │   │   ├── m37710o3.c
+│   │   │   ├── m37710op.h
+│   │   │   ├── m7700ds.c
+│   │   │   └── m7700ds.h
+│   │   ├── m6502
+│   │   │   ├── 6502dasm.c
+│   │   │   ├── ill02.h
+│   │   │   ├── m4510.c
+│   │   │   ├── m4510.h
+│   │   │   ├── m6502.c
+│   │   │   ├── m6502.h
+│   │   │   ├── m6502.txt
+│   │   │   ├── m6509.c
+│   │   │   ├── m6509.h
+│   │   │   ├── m65ce02.c
+│   │   │   ├── m65ce02.h
+│   │   │   ├── minc4510.h
+│   │   │   ├── mincce02.h
+│   │   │   ├── ops02.h
+│   │   │   ├── ops09.h
+│   │   │   ├── ops4510.h
+│   │   │   ├── opsc02.h
+│   │   │   ├── opsce02.h
+│   │   │   ├── opsn2a03.h
+│   │   │   ├── t6502.c
+│   │   │   ├── t6509.c
+│   │   │   ├── t6510.c
+│   │   │   ├── t65c02.c
+│   │   │   ├── t65ce02.c
+│   │   │   ├── t65sc02.c
+│   │   │   ├── tdeco16.c
+│   │   │   └── tn2a03.c
+│   │   ├── m6800
+│   │   │   ├── 6800dasm.c
+│   │   │   ├── 6800ops.c
+│   │   │   ├── 6800tbl.c
+│   │   │   ├── m6800.c
+│   │   │   └── m6800.h
+│   │   ├── m68000
+│   │   │   ├── m68000.h
+│   │   │   ├── m68k_in.c
+│   │   │   ├── m68kcpu.c
+│   │   │   ├── m68kcpu.h
+│   │   │   ├── m68kdasm.c
+│   │   │   ├── m68kfpu.c
+│   │   │   ├── m68kmake.c
+│   │   │   └── m68kmmu.h
+│   │   ├── m6805
+│   │   │   ├── 6805dasm.c
+│   │   │   ├── 6805ops.c
+│   │   │   ├── m6805.c
+│   │   │   └── m6805.h
+│   │   ├── m6809
+│   │   │   ├── 6809dasm.c
+│   │   │   ├── 6809ops.c
+│   │   │   ├── 6809tbl.c
+│   │   │   ├── m6809.c
+│   │   │   └── m6809.h
+│   │   ├── mb86233
+│   │   │   ├── mb86233.c
+│   │   │   ├── mb86233.h
+│   │   │   └── mb86233d.c
+│   │   ├── mb88xx
+│   │   │   ├── mb88dasm.c
+│   │   │   ├── mb88xx.c
+│   │   │   └── mb88xx.h
+│   │   ├── mc68hc11
+│   │   │   ├── hc11dasm.c
+│   │   │   ├── hc11ops.c
+│   │   │   ├── hc11ops.h
+│   │   │   ├── mc68hc11.c
+│   │   │   └── mc68hc11.h
+│   │   ├── mcs48
+│   │   │   ├── mcs48.c
+│   │   │   ├── mcs48.h
+│   │   │   └── mcs48dsm.c
+│   │   ├── mcs51
+│   │   │   ├── mcs51.c
+│   │   │   ├── mcs51.h
+│   │   │   ├── mcs51dasm.c
+│   │   │   └── mcs51ops.c
+│   │   ├── minx
+│   │   │   ├── minx.c
+│   │   │   ├── minx.h
+│   │   │   ├── minxd.c
+│   │   │   ├── minxfunc.h
+│   │   │   ├── minxopce.h
+│   │   │   ├── minxopcf.h
+│   │   │   └── minxops.h
+│   │   ├── mips
+│   │   │   ├── dismips.c
+│   │   │   ├── dismips.mak
+│   │   │   ├── mips3.c
+│   │   │   ├── mips3.h
+│   │   │   ├── mips3com.c
+│   │   │   ├── mips3com.h
+│   │   │   ├── mips3drc.c
+│   │   │   ├── mips3dsm.c
+│   │   │   ├── mips3fe.c
+│   │   │   ├── mips3fe.h
+│   │   │   ├── psx.c
+│   │   │   ├── psx.h
+│   │   │   ├── psxdasm.c
+│   │   │   ├── r3000.c
+│   │   │   ├── r3000.h
+│   │   │   └── r3kdasm.c
+│   │   ├── mn10200
+│   │   │   ├── mn10200.c
+│   │   │   ├── mn10200.h
+│   │   │   └── mn102dis.c
+│   │   ├── nec
+│   │   │   ├── nec.c
+│   │   │   ├── nec.h
+│   │   │   ├── necdasm.c
+│   │   │   ├── necea.h
+│   │   │   ├── nechost.h
+│   │   │   ├── necinstr.h
+│   │   │   ├── necmodrm.h
+│   │   │   └── necpriv.h
+│   │   ├── pdp1
+│   │   │   ├── pdp1.c
+│   │   │   ├── pdp1.h
+│   │   │   ├── pdp1dasm.c
+│   │   │   ├── tx0.c
+│   │   │   ├── tx0.h
+│   │   │   └── tx0dasm.c
+│   │   ├── pic16c5x
+│   │   │   ├── 16c5xdsm.c
+│   │   │   ├── dis16c5x.c
+│   │   │   ├── pic16c5x.c
+│   │   │   └── pic16c5x.h
+│   │   ├── pic16c62x
+│   │   │   ├── 16c62xdsm.c
+│   │   │   ├── dis16c62x.c
+│   │   │   ├── pic16c62x.c
+│   │   │   └── pic16c62x.h
+│   │   ├── powerpc
+│   │   │   ├── drc_ops.c
+│   │   │   ├── drc_ops.h
+│   │   │   ├── ppc.c
+│   │   │   ├── ppc.h
+│   │   │   ├── ppc403.c
+│   │   │   ├── ppc602.c
+│   │   │   ├── ppc603.c
+│   │   │   ├── ppc_dasm.c
+│   │   │   ├── ppc_mem.c
+│   │   │   ├── ppc_ops.c
+│   │   │   ├── ppc_ops.h
+│   │   │   ├── ppccom.c
+│   │   │   ├── ppccom.h
+│   │   │   ├── ppcdrc.c
+│   │   │   ├── ppcfe.c
+│   │   │   └── ppcfe.h
+│   │   ├── rsp
+│   │   │   ├── rsp.c
+│   │   │   ├── rsp.h
+│   │   │   ├── rsp_dasm.c
+│   │   │   ├── rspdrc.c
+│   │   │   ├── rspfe.c
+│   │   │   └── rspfe.h
+│   │   ├── s2650
+│   │   │   ├── 2650dasm.c
+│   │   │   ├── s2650.c
+│   │   │   ├── s2650.h
+│   │   │   └── s2650cpu.h
+│   │   ├── saturn
+│   │   │   ├── satops.c
+│   │   │   ├── sattable.c
+│   │   │   ├── saturn.c
+│   │   │   ├── saturn.h
+│   │   │   └── saturnds.c
+│   │   ├── sc61860
+│   │   │   ├── readpc.c
+│   │   │   ├── sc.h
+│   │   │   ├── sc61860.c
+│   │   │   ├── sc61860.h
+│   │   │   ├── scdasm.c
+│   │   │   ├── scops.c
+│   │   │   └── sctable.c
+│   │   ├── scmp
+│   │   │   ├── scmp.c
+│   │   │   ├── scmp.h
+│   │   │   └── scmpdasm.c
+│   │   ├── se3208
+│   │   │   ├── se3208.c
+│   │   │   ├── se3208.h
+│   │   │   └── se3208dis.c
+│   │   ├── sh2
+│   │   │   ├── sh2.c
+│   │   │   ├── sh2.h
+│   │   │   ├── sh2comn.c
+│   │   │   ├── sh2comn.h
+│   │   │   ├── sh2dasm.c
+│   │   │   ├── sh2drc.c
+│   │   │   └── sh2fe.c
+│   │   ├── sh4
+│   │   │   ├── sh4.c
+│   │   │   ├── sh4.h
+│   │   │   ├── sh4comn.c
+│   │   │   ├── sh4comn.h
+│   │   │   ├── sh4dasm.c
+│   │   │   └── sh4regs.h
+│   │   ├── sharc
+│   │   │   ├── compute.c
+│   │   │   ├── sharc.c
+│   │   │   ├── sharc.h
+│   │   │   ├── sharcdma.c
+│   │   │   ├── sharcdsm.c
+│   │   │   ├── sharcdsm.h
+│   │   │   ├── sharcmem.c
+│   │   │   ├── sharcops.c
+│   │   │   └── sharcops.h
+│   │   ├── sm8500
+│   │   │   ├── sm8500.c
+│   │   │   ├── sm8500.h
+│   │   │   ├── sm8500d.c
+│   │   │   └── sm85ops.h
+│   │   ├── spc700
+│   │   │   ├── spc700.c
+│   │   │   ├── spc700.h
+│   │   │   ├── spc700ds.c
+│   │   │   └── spc700ds.h
+│   │   ├── ssem
+│   │   │   ├── ssem.c
+│   │   │   ├── ssem.h
+│   │   │   └── ssemdasm.c
+│   │   ├── ssp1601
+│   │   │   ├── ssp1601.c
+│   │   │   ├── ssp1601.h
+│   │   │   └── ssp1601d.c
+│   │   ├── superfx
+│   │   │   ├── sfx_dasm.c
+│   │   │   ├── superfx.c
+│   │   │   └── superfx.h
+│   │   ├── t11
+│   │   │   ├── t11.c
+│   │   │   ├── t11.h
+│   │   │   ├── t11dasm.c
+│   │   │   ├── t11ops.c
+│   │   │   └── t11table.c
+│   │   ├── tlcs90
+│   │   │   ├── tlcs90.c
+│   │   │   └── tlcs90.h
+│   │   ├── tlcs900
+│   │   │   ├── 900tbl.c
+│   │   │   ├── dasm900.c
+│   │   │   ├── tlcs900.c
+│   │   │   └── tlcs900.h
+│   │   ├── tms0980
+│   │   │   ├── tms0980.c
+│   │   │   ├── tms0980.h
+│   │   │   └── tms0980d.c
+│   │   ├── tms32010
+│   │   │   ├── 32010dsm.c
+│   │   │   ├── dis32010.c
+│   │   │   ├── tms32010.c
+│   │   │   └── tms32010.h
+│   │   ├── tms32025
+│   │   │   ├── 32025dsm.c
+│   │   │   ├── dis32025.c
+│   │   │   ├── tms32025.c
+│   │   │   └── tms32025.h
+│   │   ├── tms32031
+│   │   │   ├── 32031ops.c
+│   │   │   ├── dis32031.c
+│   │   │   ├── tms32031.c
+│   │   │   └── tms32031.h
+│   │   ├── tms32051
+│   │   │   ├── 32051ops.c
+│   │   │   ├── 32051ops.h
+│   │   │   ├── dis32051.c
+│   │   │   ├── tms32051.c
+│   │   │   └── tms32051.h
+│   │   ├── tms34010
+│   │   │   ├── 34010dsm.c
+│   │   │   ├── 34010fld.c
+│   │   │   ├── 34010gfx.c
+│   │   │   ├── 34010ops.c
+│   │   │   ├── 34010ops.h
+│   │   │   ├── 34010tbl.c
+│   │   │   ├── dis34010.c
+│   │   │   ├── makefile
+│   │   │   ├── tms34010.c
+│   │   │   └── tms34010.h
+│   │   ├── tms57002
+│   │   │   ├── 57002dsm.c
+│   │   │   ├── tms57002.c
+│   │   │   ├── tms57002.h
+│   │   │   ├── tmsinstr.lst
+│   │   │   └── tmsmake.c
+│   │   ├── tms7000
+│   │   │   ├── 7000dasm.c
+│   │   │   ├── tms7000.c
+│   │   │   ├── tms7000.h
+│   │   │   ├── tms70op.c
+│   │   │   └── tms70tb.c
+│   │   ├── tms9900
+│   │   │   ├── 9900dasm.c
+│   │   │   ├── 99xxcore.h
+│   │   │   ├── 99xxstat.h
+│   │   │   ├── ti990_10.c
+│   │   │   ├── tms9900.c
+│   │   │   ├── tms9900.h
+│   │   │   ├── tms9980a.c
+│   │   │   └── tms9995.c
+│   │   ├── unsp
+│   │   │   ├── unsp.c
+│   │   │   ├── unsp.h
+│   │   │   └── unspdasm.c
+│   │   ├── upd7810
+│   │   │   ├── 7810dasm.c
+│   │   │   ├── 7810ops.c
+│   │   │   ├── 7810tbl.c
+│   │   │   ├── upd7810.c
+│   │   │   └── upd7810.h
+│   │   ├── v30mz
+│   │   │   ├── nec.h
+│   │   │   ├── necea.h
+│   │   │   ├── nechost.h
+│   │   │   ├── necinstr.h
+│   │   │   ├── necmodrm.h
+│   │   │   ├── v30mz.c
+│   │   │   └── v30mz.h
+│   │   ├── v60
+│   │   │   ├── am.c
+│   │   │   ├── am1.c
+│   │   │   ├── am2.c
+│   │   │   ├── am3.c
+│   │   │   ├── op12.c
+│   │   │   ├── op2.c
+│   │   │   ├── op3.c
+│   │   │   ├── op4.c
+│   │   │   ├── op5.c
+│   │   │   ├── op6.c
+│   │   │   ├── op7a.c
+│   │   │   ├── optable.c
+│   │   │   ├── v60.c
+│   │   │   ├── v60.h
+│   │   │   ├── v60d.c
+│   │   │   └── v60mem.c
+│   │   ├── v810
+│   │   │   ├── v810.c
+│   │   │   ├── v810.h
+│   │   │   └── v810dasm.c
+│   │   ├── vtlb.c
+│   │   ├── vtlb.h
+│   │   ├── x86emit.h
+│   │   ├── x86log.c
+│   │   ├── x86log.h
+│   │   ├── z180
+│   │   │   ├── z180.c
+│   │   │   ├── z180.h
+│   │   │   ├── z180cb.c
+│   │   │   ├── z180dasm.c
+│   │   │   ├── z180dd.c
+│   │   │   ├── z180ed.c
+│   │   │   ├── z180fd.c
+│   │   │   ├── z180op.c
+│   │   │   ├── z180ops.h
+│   │   │   ├── z180tbl.h
+│   │   │   └── z180xy.c
+│   │   ├── z8
+│   │   │   ├── z8.c
+│   │   │   ├── z8.h
+│   │   │   ├── z8dasm.c
+│   │   │   └── z8ops.c
+│   │   ├── z80
+│   │   │   ├── z80.c
+│   │   │   ├── z80.h
+│   │   │   ├── z80daisy.c
+│   │   │   ├── z80daisy.h
+│   │   │   └── z80dasm.c
+│   │   └── z8000
+│   │       ├── 8000dasm.c
+│   │       ├── makedab.c
+│   │       ├── z8000.c
+│   │       ├── z8000.h
+│   │       ├── z8000cpu.h
+│   │       ├── z8000dab.h
+│   │       ├── z8000ops.c
+│   │       └── z8000tbl.c
+│   ├── crsshair.c
+│   ├── crsshair.h
+│   ├── debug
+│   │   ├── debugcmd.c
+│   │   ├── debugcmd.h
+│   │   ├── debugcmt.c
+│   │   ├── debugcmt.h
+│   │   ├── debugcon.c
+│   │   ├── debugcon.h
+│   │   ├── debugcpu.c
+│   │   ├── debugcpu.h
+│   │   ├── debughlp.c
+│   │   ├── debughlp.h
+│   │   ├── debugvw.c
+│   │   ├── debugvw.h
+│   │   ├── dvdisasm.c
+│   │   ├── dvdisasm.h
+│   │   ├── dvmemory.c
+│   │   ├── dvmemory.h
+│   │   ├── dvstate.c
+│   │   ├── dvstate.h
+│   │   ├── dvtext.c
+│   │   ├── dvtext.h
+│   │   ├── express.c
+│   │   ├── express.h
+│   │   ├── textbuf.c
+│   │   └── textbuf.h
+│   ├── debugger.c
+│   ├── debugger.h
+│   ├── debugint
+│   │   ├── debugint.c
+│   │   └── debugint.h
+│   ├── deprecat.h
+│   ├── devcb.c
+│   ├── devcb.h
+│   ├── devconv.h
+│   ├── devcpu.c
+│   ├── devcpu.h
+│   ├── devimage.c
+│   ├── devintrf.c
+│   ├── devintrf.h
+│   ├── devlegcy.c
+│   ├── devlegcy.h
+│   ├── devtempl.h
+│   ├── didisasm.c
+│   ├── didisasm.h
+│   ├── diexec.c
+│   ├── diexec.h
+│   ├── diimage.c
+│   ├── diimage.h
+│   ├── dimemory.c
+│   ├── dimemory.h
+│   ├── dinvram.c
+│   ├── dinvram.h
+│   ├── disound.c
+│   ├── disound.h
+│   ├── distate.c
+│   ├── distate.h
+│   ├── drawgfx.c
+│   ├── drawgfx.h
+│   ├── drawgfxm.h
+│   ├── driver.c
+│   ├── driver.h
+│   ├── drivers
+│   │   ├── empty.c
+│   │   └── xtal.h
+│   ├── eigccppc.h
+│   ├── eigccx86.h
+│   ├── eminline.h
+│   ├── emu.h
+│   ├── emu.mak
+│   ├── emualloc.c
+│   ├── emualloc.h
+│   ├── emucore.c
+│   ├── emucore.h
+│   ├── emuopts.c
+│   ├── emuopts.h
+│   ├── emupal.c
+│   ├── emupal.h
+│   ├── fileio.c
+│   ├── fileio.h
+│   ├── hash.c
+│   ├── hash.h
+│   ├── hashfile.c
+│   ├── hashfile.h
+│   ├── hiscore.c
+│   ├── hiscore.h
+│   ├── image.c
+│   ├── image.h
+│   ├── info.c
+│   ├── info.h
+│   ├── inptport.c
+│   ├── inptport.h
+│   ├── inpttype.h
+│   ├── input.c
+│   ├── input.h
+│   ├── inputseq.c
+│   ├── inputseq.h
+│   ├── ioprocs.c
+│   ├── ioprocs.h
+│   ├── layout
+│   │   ├── dualhovu.lay
+│   │   ├── dualhsxs.lay
+│   │   ├── dualhuov.lay
+│   │   ├── ho20ffff.lay
+│   │   ├── ho2eff2e.lay
+│   │   ├── ho4f893d.lay
+│   │   ├── ho88ffff.lay
+│   │   ├── hoa0a0ff.lay
+│   │   ├── hoffe457.lay
+│   │   ├── hoffff20.lay
+│   │   ├── horizont.lay
+│   │   ├── snap.lay
+│   │   ├── triphsxs.lay
+│   │   ├── vertical.lay
+│   │   └── voffff20.lay
+│   ├── machine
+│   │   ├── 53c810.c
+│   │   ├── 53c810.h
+│   │   ├── 6522via.c
+│   │   ├── 6522via.h
+│   │   ├── 6526cia.c
+│   │   ├── 6526cia.h
+│   │   ├── 6532riot.c
+│   │   ├── 6532riot.h
+│   │   ├── 6821pia.c
+│   │   ├── 6821pia.h
+│   │   ├── 6840ptm.c
+│   │   ├── 6840ptm.h
+│   │   ├── 6850acia.c
+│   │   ├── 6850acia.h
+│   │   ├── 68681.c
+│   │   ├── 68681.h
+│   │   ├── 74123.c
+│   │   ├── 74123.h
+│   │   ├── 74148.c
+│   │   ├── 74148.h
+│   │   ├── 74153.c
+│   │   ├── 74153.h
+│   │   ├── 74181.c
+│   │   ├── 74181.h
+│   │   ├── 7474.c
+│   │   ├── 7474.h
+│   │   ├── 8042kbdc.c
+│   │   ├── 8042kbdc.h
+│   │   ├── 8237dma.c
+│   │   ├── 8237dma.h
+│   │   ├── 8255ppi.c
+│   │   ├── 8255ppi.h
+│   │   ├── 8257dma.c
+│   │   ├── 8257dma.h
+│   │   ├── adc083x.c
+│   │   ├── adc083x.h
+│   │   ├── adc1038.c
+│   │   ├── adc1038.h
+│   │   ├── adc1213x.c
+│   │   ├── adc1213x.h
+│   │   ├── am53cf96.c
+│   │   ├── am53cf96.h
+│   │   ├── at28c16.c
+│   │   ├── at28c16.h
+│   │   ├── cdp1852.c
+│   │   ├── cdp1852.h
+│   │   ├── cr589.c
+│   │   ├── cr589.h
+│   │   ├── ds1302.c
+│   │   ├── ds1302.h
+│   │   ├── ds2401.c
+│   │   ├── ds2401.h
+│   │   ├── ds2404.c
+│   │   ├── ds2404.h
+│   │   ├── eeprom.c
+│   │   ├── eeprom.h
+│   │   ├── f3853.c
+│   │   ├── f3853.h
+│   │   ├── generic.c
+│   │   ├── generic.h
+│   │   ├── i2cmem.c
+│   │   ├── i2cmem.h
+│   │   ├── i8243.c
+│   │   ├── i8243.h
+│   │   ├── i8255a.c
+│   │   ├── i8255a.h
+│   │   ├── idectrl.c
+│   │   ├── idectrl.h
+│   │   ├── ins8154.c
+│   │   ├── ins8154.h
+│   │   ├── ins8250.c
+│   │   ├── ins8250.h
+│   │   ├── intelfsh.c
+│   │   ├── intelfsh.h
+│   │   ├── k033906.c
+│   │   ├── k033906.h
+│   │   ├── k056230.c
+│   │   ├── k056230.h
+│   │   ├── laserdsc.h
+│   │   ├── latch8.c
+│   │   ├── latch8.h
+│   │   ├── ldcore.c
+│   │   ├── ldcore.h
+│   │   ├── ldpr8210.c
+│   │   ├── ldv1000.c
+│   │   ├── ldvp931.c
+│   │   ├── mb14241.c
+│   │   ├── mb14241.h
+│   │   ├── mb3773.c
+│   │   ├── mb3773.h
+│   │   ├── mb87078.c
+│   │   ├── mb87078.h
+│   │   ├── mc146818.c
+│   │   ├── mc146818.h
+│   │   ├── microtch.c
+│   │   ├── microtch.h
+│   │   ├── msm6242.c
+│   │   ├── msm6242.h
+│   │   ├── pc16552d.c
+│   │   ├── pc16552d.h
+│   │   ├── pci.c
+│   │   ├── pci.h
+│   │   ├── pckeybrd.h
+│   │   ├── pcshare.h
+│   │   ├── pd4990a.c
+│   │   ├── pd4990a.h
+│   │   ├── pic8259.c
+│   │   ├── pic8259.h
+│   │   ├── pit8253.c
+│   │   ├── pit8253.h
+│   │   ├── rescap.h
+│   │   ├── roc10937.c
+│   │   ├── roc10937.h
+│   │   ├── rp5h01.c
+│   │   ├── rp5h01.h
+│   │   ├── rtc65271.c
+│   │   ├── rtc65271.h
+│   │   ├── scsi.c
+│   │   ├── scsi.h
+│   │   ├── scsicd.c
+│   │   ├── scsicd.h
+│   │   ├── scsidev.c
+│   │   ├── scsidev.h
+│   │   ├── scsihd.c
+│   │   ├── scsihd.h
+│   │   ├── smc91c9x.c
+│   │   ├── smc91c9x.h
+│   │   ├── timekpr.c
+│   │   ├── timekpr.h
+│   │   ├── tmp68301.c
+│   │   ├── tmp68301.h
+│   │   ├── tms6100.c
+│   │   ├── tms6100.h
+│   │   ├── upd4701.c
+│   │   ├── upd4701.h
+│   │   ├── wd33c93.c
+│   │   ├── wd33c93.h
+│   │   ├── x2212.c
+│   │   ├── x2212.h
+│   │   ├── x76f041.c
+│   │   ├── x76f041.h
+│   │   ├── x76f100.c
+│   │   ├── x76f100.h
+│   │   ├── z80ctc.c
+│   │   ├── z80ctc.h
+│   │   ├── z80dart.c
+│   │   ├── z80dart.h
+│   │   ├── z80dma.c
+│   │   ├── z80dma.h
+│   │   ├── z80pio.c
+│   │   ├── z80pio.h
+│   │   ├── z80sio.c
+│   │   ├── z80sio.h
+│   │   ├── z80sti.c
+│   │   └── z80sti.h
+│   ├── machine.c
+│   ├── machine.h
+│   ├── mame.c
+│   ├── mame.h
+│   ├── mconfig.c
+│   ├── mconfig.h
+│   ├── memconv.h
+│   ├── memory.c
+│   ├── memory.h
+│   ├── output.c
+│   ├── output.h
+│   ├── profiler.c
+│   ├── profiler.h
+│   ├── render.c
+│   ├── render.h
+│   ├── rendersw.c
+│   ├── rendfont.c
+│   ├── rendfont.h
+│   ├── rendlay.c
+│   ├── rendlay.h
+│   ├── rendutil.c
+│   ├── rendutil.h
+│   ├── romload.c
+│   ├── romload.h
+│   ├── schedule.c
+│   ├── schedule.h
+│   ├── softlist.c
+│   ├── softlist.h
+│   ├── sound
+│   │   ├── 2151intf.c
+│   │   ├── 2151intf.h
+│   │   ├── 2203intf.c
+│   │   ├── 2203intf.h
+│   │   ├── 2413intf.c
+│   │   ├── 2413intf.h
+│   │   ├── 2608intf.c
+│   │   ├── 2608intf.h
+│   │   ├── 2610intf.c
+│   │   ├── 2610intf.h
+│   │   ├── 2612intf.c
+│   │   ├── 2612intf.h
+│   │   ├── 262intf.c
+│   │   ├── 262intf.h
+│   │   ├── 3526intf.c
+│   │   ├── 3526intf.h
+│   │   ├── 3812intf.c
+│   │   ├── 3812intf.h
+│   │   ├── 8950intf.c
+│   │   ├── 8950intf.h
+│   │   ├── aica.c
+│   │   ├── aica.h
+│   │   ├── aicadsp.c
+│   │   ├── aicadsp.h
+│   │   ├── aicalfo.c
+│   │   ├── astrocde.c
+│   │   ├── astrocde.h
+│   │   ├── ay8910.c
+│   │   ├── ay8910.h
+│   │   ├── beep.c
+│   │   ├── beep.h
+│   │   ├── bsmt2000.c
+│   │   ├── bsmt2000.h
+│   │   ├── c140.c
+│   │   ├── c140.h
+│   │   ├── c352.c
+│   │   ├── c352.h
+│   │   ├── c6280.c
+│   │   ├── c6280.h
+│   │   ├── cdda.c
+│   │   ├── cdda.h
+│   │   ├── cdp1863.c
+│   │   ├── cdp1863.h
+│   │   ├── cdp1864.c
+│   │   ├── cdp1864.h
+│   │   ├── cdp1869.c
+│   │   ├── cdp1869.h
+│   │   ├── cem3394.c
+│   │   ├── cem3394.h
+│   │   ├── dac.c
+│   │   ├── dac.h
+│   │   ├── digitalk.c
+│   │   ├── digitalk.h
+│   │   ├── disc_dev.c
+│   │   ├── disc_flt.c
+│   │   ├── disc_inp.c
+│   │   ├── disc_mth.c
+│   │   ├── disc_sys.c
+│   │   ├── disc_wav.c
+│   │   ├── discrete.c
+│   │   ├── discrete.h
+│   │   ├── dmadac.c
+│   │   ├── dmadac.h
+│   │   ├── es5503.c
+│   │   ├── es5503.h
+│   │   ├── es5506.c
+│   │   ├── es5506.h
+│   │   ├── es8712.c
+│   │   ├── es8712.h
+│   │   ├── filter.c
+│   │   ├── filter.h
+│   │   ├── flt_rc.c
+│   │   ├── flt_rc.h
+│   │   ├── flt_vol.c
+│   │   ├── flt_vol.h
+│   │   ├── fm.c
+│   │   ├── fm.h
+│   │   ├── fm2612.c
+│   │   ├── fmopl.c
+│   │   ├── fmopl.h
+│   │   ├── gaelco.c
+│   │   ├── gaelco.h
+│   │   ├── hc55516.c
+│   │   ├── hc55516.h
+│   │   ├── ics2115.c
+│   │   ├── ics2115.h
+│   │   ├── iremga20.c
+│   │   ├── iremga20.h
+│   │   ├── k005289.c
+│   │   ├── k005289.h
+│   │   ├── k007232.c
+│   │   ├── k007232.h
+│   │   ├── k051649.c
+│   │   ├── k051649.h
+│   │   ├── k053260.c
+│   │   ├── k053260.h
+│   │   ├── k054539.c
+│   │   ├── k054539.h
+│   │   ├── k056800.c
+│   │   ├── k056800.h
+│   │   ├── mos6560.c
+│   │   ├── mos6560.h
+│   │   ├── msm5205.c
+│   │   ├── msm5205.h
+│   │   ├── msm5232.c
+│   │   ├── msm5232.h
+│   │   ├── multipcm.c
+│   │   ├── multipcm.h
+│   │   ├── n63701x.c
+│   │   ├── n63701x.h
+│   │   ├── namco.c
+│   │   ├── namco.h
+│   │   ├── nes_apu.c
+│   │   ├── nes_apu.h
+│   │   ├── nes_defs.h
+│   │   ├── nile.c
+│   │   ├── nile.h
+│   │   ├── okim6258.c
+│   │   ├── okim6258.h
+│   │   ├── okim6295.c
+│   │   ├── okim6295.h
+│   │   ├── okim6376.c
+│   │   ├── okim6376.h
+│   │   ├── pokey.c
+│   │   ├── pokey.h
+│   │   ├── pokey.txt
+│   │   ├── psx.c
+│   │   ├── psx.h
+│   │   ├── qsound.c
+│   │   ├── qsound.h
+│   │   ├── rf5c400.c
+│   │   ├── rf5c400.h
+│   │   ├── rf5c68.c
+│   │   ├── rf5c68.h
+│   │   ├── s14001a.c
+│   │   ├── s14001a.h
+│   │   ├── saa1099.c
+│   │   ├── saa1099.h
+│   │   ├── samples.c
+│   │   ├── samples.h
+│   │   ├── scsp.c
+│   │   ├── scsp.h
+│   │   ├── scspdsp.c
+│   │   ├── scspdsp.h
+│   │   ├── scsplfo.c
+│   │   ├── segapcm.c
+│   │   ├── segapcm.h
+│   │   ├── sid.c
+│   │   ├── sid.h
+│   │   ├── sid6581.c
+│   │   ├── sid6581.h
+│   │   ├── side6581.h
+│   │   ├── sidenvel.c
+│   │   ├── sidenvel.h
+│   │   ├── sidvoice.c
+│   │   ├── sidvoice.h
+│   │   ├── sidw6581.h
+│   │   ├── sidw8580.h
+│   │   ├── sn76477.c
+│   │   ├── sn76477.h
+│   │   ├── sn76496.c
+│   │   ├── sn76496.h
+│   │   ├── snkwave.c
+│   │   ├── snkwave.h
+│   │   ├── sound.mak
+│   │   ├── sp0250.c
+│   │   ├── sp0250.h
+│   │   ├── sp0256.c
+│   │   ├── sp0256.h
+│   │   ├── speaker.c
+│   │   ├── speaker.h
+│   │   ├── st0016.c
+│   │   ├── st0016.h
+│   │   ├── t6w28.c
+│   │   ├── t6w28.h
+│   │   ├── tiaintf.c
+│   │   ├── tiaintf.h
+│   │   ├── tiasound.c
+│   │   ├── tiasound.h
+│   │   ├── tms3615.c
+│   │   ├── tms3615.h
+│   │   ├── tms36xx.c
+│   │   ├── tms36xx.h
+│   │   ├── tms5110.c
+│   │   ├── tms5110.h
+│   │   ├── tms5110r.c
+│   │   ├── tms5220.c
+│   │   ├── tms5220.h
+│   │   ├── tms5220.txt
+│   │   ├── tms5220r.c
+│   │   ├── upd7759.c
+│   │   ├── upd7759.h
+│   │   ├── vlm5030.c
+│   │   ├── vlm5030.h
+│   │   ├── votrax.c
+│   │   ├── votrax.h
+│   │   ├── vrender0.c
+│   │   ├── vrender0.h
+│   │   ├── wave.c
+│   │   ├── wave.h
+│   │   ├── wavwrite.c
+│   │   ├── wavwrite.h
+│   │   ├── x1_010.c
+│   │   ├── x1_010.h
+│   │   ├── ym2151.c
+│   │   ├── ym2151.h
+│   │   ├── ym2151.txt
+│   │   ├── ym2413.c
+│   │   ├── ym2413.h
+│   │   ├── ymdeltat.c
+│   │   ├── ymdeltat.h
+│   │   ├── ymf262.c
+│   │   ├── ymf262.h
+│   │   ├── ymf271.c
+│   │   ├── ymf271.h
+│   │   ├── ymf278b.c
+│   │   ├── ymf278b.h
+│   │   ├── ymz280b.c
+│   │   ├── ymz280b.h
+│   │   ├── zsg2.c
+│   │   └── zsg2.h
+│   ├── sound.c
+│   ├── sound.h
+│   ├── state.c
+│   ├── state.h
+│   ├── streams.c
+│   ├── streams.h
+│   ├── tilemap.c
+│   ├── tilemap.h
+│   ├── timer.c
+│   ├── timer.h
+│   ├── tokenize.h
+│   ├── ui.c
+│   ├── ui.h
+│   ├── uigfx.c
+│   ├── uigfx.h
+│   ├── uiimage.c
+│   ├── uiimage.h
+│   ├── uiinput.c
+│   ├── uiinput.h
+│   ├── uimenu.c
+│   ├── uimenu.h
+│   ├── uismall.png
+│   ├── validity.c
+│   ├── validity.h
+│   ├── video
+│   │   ├── generic.c
+│   │   ├── generic.h
+│   │   ├── hd63484.c
+│   │   ├── hd63484.h
+│   │   ├── mc6845.c
+│   │   ├── mc6845.h
+│   │   ├── pc_vga.c
+│   │   ├── pc_vga.h
+│   │   ├── pc_video.c
+│   │   ├── pc_video.h
+│   │   ├── poly.c
+│   │   ├── poly.h
+│   │   ├── resnet.c
+│   │   ├── resnet.h
+│   │   ├── rgbgen.h
+│   │   ├── rgbsse.h
+│   │   ├── rgbutil.c
+│   │   ├── rgbutil.h
+│   │   ├── rgbvmx.h
+│   │   ├── s2636.c
+│   │   ├── s2636.h
+│   │   ├── saa5050.c
+│   │   ├── saa5050.h
+│   │   ├── tlc34076.c
+│   │   ├── tlc34076.h
+│   │   ├── tms34061.c
+│   │   ├── tms34061.h
+│   │   ├── tms9927.c
+│   │   ├── tms9927.h
+│   │   ├── tms9928a.c
+│   │   ├── tms9928a.h
+│   │   ├── v9938.c
+│   │   ├── v9938.h
+│   │   ├── v9938mod.c
+│   │   ├── vector.c
+│   │   ├── vector.h
+│   │   ├── vooddefs.h
+│   │   ├── voodoo.c
+│   │   └── voodoo.h
+│   ├── video.c
+│   ├── video.h
+│   ├── watchdog.c
+│   └── watchdog.h
+├── ldplayer
+│   ├── layout
+│   │   └── pr8210.lay
+│   ├── ldpdriv.c
+│   ├── ldplayer.c
+│   └── ldplayer.mak
+├── lib
+│   ├── expat
+│   │   ├── ascii.h
+│   │   ├── asciitab.h
+│   │   ├── expat.h
+│   │   ├── expat_external.h
+│   │   ├── iasciitab.h
+│   │   ├── intconfig.h
+│   │   ├── internal.h
+│   │   ├── latin1tab.h
+│   │   ├── nametab.h
+│   │   ├── utf8tab.h
+│   │   ├── xmlparse.c
+│   │   ├── xmlrole.c
+│   │   ├── xmlrole.h
+│   │   ├── xmltok.c
+│   │   ├── xmltok.h
+│   │   ├── xmltok_impl.c
+│   │   ├── xmltok_impl.h
+│   │   └── xmltok_ns.c
+│   ├── hqx
+│   │   ├── AUTHORS
+│   │   ├── COPYING
+│   │   ├── ChangeLog
+│   │   ├── Makefile.am.hqx
+│   │   ├── NEWS
+│   │   ├── README
+│   │   ├── common.h
+│   │   ├── configure.ac.hqx
+│   │   ├── hq2x-int.h
+│   │   ├── hq2x_16.c
+│   │   ├── hq2x_24.c
+│   │   ├── hq2x_32.c
+│   │   ├── hq3x-int.h
+│   │   ├── hq3x_16.c
+│   │   ├── hq3x_24.c
+│   │   ├── hq3x_32.c
+│   │   ├── hq4x-int.h
+│   │   ├── hq4x_16.c
+│   │   ├── hq4x_24.c
+│   │   ├── hq4x_32.c
+│   │   ├── hqx.c
+│   │   ├── hqx.h
+│   │   └── init.c
+│   ├── lib.mak
+│   ├── softfloat
+│   │   ├── README.txt
+│   │   ├── mamesf.h
+│   │   ├── milieu.h
+│   │   ├── softfloat-macros
+│   │   ├── softfloat-specialize
+│   │   ├── softfloat.c
+│   │   └── softfloat.h
+│   ├── util
+│   │   ├── astring.c
+│   │   ├── astring.h
+│   │   ├── avcomp.c
+│   │   ├── avcomp.h
+│   │   ├── aviio.c
+│   │   ├── aviio.h
+│   │   ├── bitmap.c
+│   │   ├── bitmap.h
+│   │   ├── cdrom.c
+│   │   ├── cdrom.h
+│   │   ├── chd.c
+│   │   ├── chd.h
+│   │   ├── corefile.c
+│   │   ├── corefile.h
+│   │   ├── corestr.c
+│   │   ├── corestr.h
+│   │   ├── coreutil.c
+│   │   ├── coreutil.h
+│   │   ├── harddisk.c
+│   │   ├── harddisk.h
+│   │   ├── huffman.c
+│   │   ├── huffman.h
+│   │   ├── imageutl.c
+│   │   ├── imageutl.h
+│   │   ├── jedparse.c
+│   │   ├── jedparse.h
+│   │   ├── md5.c
+│   │   ├── md5.h
+│   │   ├── opresolv.c
+│   │   ├── opresolv.h
+│   │   ├── options.c
+│   │   ├── options.h
+│   │   ├── palette.c
+│   │   ├── palette.h
+│   │   ├── png.c
+│   │   ├── png.h
+│   │   ├── pool.c
+│   │   ├── pool.h
+│   │   ├── sha1.c
+│   │   ├── sha1.h
+│   │   ├── tagmap.c
+│   │   ├── tagmap.h
+│   │   ├── unicode.c
+│   │   ├── unicode.h
+│   │   ├── unzip.c
+│   │   ├── unzip.h
+│   │   ├── vbiparse.c
+│   │   ├── vbiparse.h
+│   │   ├── xmlfile.c
+│   │   ├── xmlfile.h
+│   │   ├── zippath.c
+│   │   └── zippath.h
+│   └── zlib
+│       ├── Makefile
+│       ├── Makefile.in
+│       ├── adler32.c
+│       ├── compress.c
+│       ├── crc32.c
+│       ├── crc32.h
+│       ├── deflate.c
+│       ├── deflate.h
+│       ├── example.c
+│       ├── gzio.c
+│       ├── infback.c
+│       ├── inffast.c
+│       ├── inffast.h
+│       ├── inffixed.h
+│       ├── inflate.c
+│       ├── inflate.h
+│       ├── inftrees.c
+│       ├── inftrees.h
+│       ├── minigzip.c
+│       ├── readme
+│       ├── trees.c
+│       ├── trees.h
+│       ├── uncompr.c
+│       ├── zconf.h
+│       ├── zconf.in.h
+│       ├── zlib.h
+│       ├── zutil.c
+│       └── zutil.h
+├── mame
+│   ├── audio
+│   │   ├── 8080bw.c
+│   │   ├── amiga.c
+│   │   ├── asteroid.c
+│   │   ├── astrof.c
+│   │   ├── atarifb.c
+│   │   ├── atarijsa.c
+│   │   ├── atarijsa.h
+│   │   ├── attckufo.c
+│   │   ├── avalnche.c
+│   │   ├── aztarac.c
+│   │   ├── blockade.c
+│   │   ├── bsktball.c
+│   │   ├── bzone.c
+│   │   ├── cage.c
+│   │   ├── cage.h
+│   │   ├── canyon.c
+│   │   ├── carnival.c
+│   │   ├── cchasm.c
+│   │   ├── cclimber.c
+│   │   ├── cinemat.c
+│   │   ├── circus.c
+│   │   ├── cliffhgr.c
+│   │   ├── cps3.c
+│   │   ├── crbaloon.c
+│   │   ├── cyberbal.c
+│   │   ├── dcs.c
+│   │   ├── dcs.h
+│   │   ├── depthch.c
+│   │   ├── dkong.c
+│   │   ├── dragrace.c
+│   │   ├── exidy.c
+│   │   ├── exidy440.c
+│   │   ├── firetrk.c
+│   │   ├── flower.c
+│   │   ├── galaga.c
+│   │   ├── galaxian.c
+│   │   ├── geebee.c
+│   │   ├── gomoku.c
+│   │   ├── gorf.c
+│   │   ├── gottlieb.c
+│   │   ├── gotya.c
+│   │   ├── grchamp.c
+│   │   ├── gridlee.c
+│   │   ├── harddriv.c
+│   │   ├── hitme.c
+│   │   ├── invinco.c
+│   │   ├── irem.c
+│   │   ├── jaguar.c
+│   │   ├── jedi.c
+│   │   ├── laserbat.c
+│   │   ├── leland.c
+│   │   ├── llander.c
+│   │   ├── m72.c
+│   │   ├── m72.h
+│   │   ├── m79amb.c
+│   │   ├── madalien.c
+│   │   ├── mario.c
+│   │   ├── mcr.c
+│   │   ├── mcr.h
+│   │   ├── meadows.c
+│   │   ├── micro3d.c
+│   │   ├── mw8080bw.c
+│   │   ├── n8080.c
+│   │   ├── namco52.c
+│   │   ├── namco52.h
+│   │   ├── namco54.c
+│   │   ├── namco54.h
+│   │   ├── namcoc7x.c
+│   │   ├── namcoc7x.h
+│   │   ├── nitedrvr.c
+│   │   ├── norautp.c
+│   │   ├── orbit.c
+│   │   ├── phoenix.c
+│   │   ├── pleiads.c
+│   │   ├── polepos.c
+│   │   ├── polyplay.c
+│   │   ├── poolshrk.c
+│   │   ├── pulsar.c
+│   │   ├── qix.c
+│   │   ├── redalert.c
+│   │   ├── redbaron.c
+│   │   ├── scramble.c
+│   │   ├── segag80r.c
+│   │   ├── segag80v.c
+│   │   ├── segasnd.c
+│   │   ├── segasnd.h
+│   │   ├── seibu.c
+│   │   ├── seibu.h
+│   │   ├── senjyo.c
+│   │   ├── skydiver.c
+│   │   ├── skyraid.c
+│   │   ├── snes_snd.c
+│   │   ├── snes_snd.h
+│   │   ├── snk6502.c
+│   │   ├── spacefb.c
+│   │   ├── spiders.c
+│   │   ├── sprint2.c
+│   │   ├── sprint4.c
+│   │   ├── sprint4.h
+│   │   ├── sprint8.c
+│   │   ├── starshp1.c
+│   │   ├── starwars.c
+│   │   ├── subs.c
+│   │   ├── suna8.c
+│   │   ├── t5182.c
+│   │   ├── t5182.h
+│   │   ├── taito_en.c
+│   │   ├── taito_en.h
+│   │   ├── taito_zm.c
+│   │   ├── taito_zm.h
+│   │   ├── taitosnd.c
+│   │   ├── taitosnd.h
+│   │   ├── tank8.c
+│   │   ├── targ.c
+│   │   ├── tiamc1.c
+│   │   ├── timeplt.c
+│   │   ├── toaplan2.c
+│   │   ├── trackfld.c
+│   │   ├── triplhnt.c
+│   │   ├── turbo.c
+│   │   ├── tx1.c
+│   │   ├── vicdual.c
+│   │   ├── videopin.c
+│   │   ├── warpwarp.c
+│   │   ├── williams.c
+│   │   ├── williams.h
+│   │   ├── wiping.c
+│   │   ├── wow.c
+│   │   └── zaxxon.c
+│   ├── drivers
+│   │   ├── 1942.c
+│   │   ├── 1943.c
+│   │   ├── 1945kiii.c
+│   │   ├── 20pacgal.c
+│   │   ├── 2mindril.c
+│   │   ├── 39in1.c
+│   │   ├── 3super8.c
+│   │   ├── 40love.c
+│   │   ├── 4enraya.c
+│   │   ├── 4roses.c
+│   │   ├── 5clown.c
+│   │   ├── 8080bw.c
+│   │   ├── 86lions.c
+│   │   ├── 88games.c
+│   │   ├── Copy\ of\ btoads.c
+│   │   ├── ace.c
+│   │   ├── acefruit.c
+│   │   ├── acommand.c
+│   │   ├── actfancr.c
+│   │   ├── adp.c
+│   │   ├── aeroboto.c
+│   │   ├── aerofgt.c
+│   │   ├── airbustr.c
+│   │   ├── ajax.c
+│   │   ├── albazc.c
+│   │   ├── albazg.c
+│   │   ├── aleck64.c
+│   │   ├── alg.c
+│   │   ├── aliens.c
+│   │   ├── alpha68k.c
+│   │   ├── amaticmg.c
+│   │   ├── ambush.c
+│   │   ├── ampoker2.c
+│   │   ├── amspdwy.c
+│   │   ├── angelkds.c
+│   │   ├── appoooh.c
+│   │   ├── aquarium.c
+│   │   ├── arabian.c
+│   │   ├── arcadecl.c
+│   │   ├── arcadia.c
+│   │   ├── argus.c
+│   │   ├── aristmk4.c
+│   │   ├── aristmk5.c
+│   │   ├── arkanoid.c
+│   │   ├── armedf.c
+│   │   ├── artmagic.c
+│   │   ├── ashnojoe.c
+│   │   ├── asterix.c
+│   │   ├── asteroid.c
+│   │   ├── astinvad.c
+│   │   ├── astrocde.c
+│   │   ├── astrocorp.c
+│   │   ├── astrof.c
+│   │   ├── asuka.c
+│   │   ├── atarifb.c
+│   │   ├── atarig1.c
+│   │   ├── atarig42.c
+│   │   ├── atarigt.c
+│   │   ├── atarigx2.c
+│   │   ├── atarisy1.c
+│   │   ├── atarisy2.c
+│   │   ├── atarisy4.c
+│   │   ├── ataxx.c
+│   │   ├── atetris.c
+│   │   ├── attckufo.c
+│   │   ├── avalnche.c
+│   │   ├── aztarac.c
+│   │   ├── backfire.c
+│   │   ├── badlands.c
+│   │   ├── bagman.c
+│   │   ├── balsente.c
+│   │   ├── bankp.c
+│   │   ├── baraduke.c
+│   │   ├── batman.c
+│   │   ├── battlane.c
+│   │   ├── battlera.c
+│   │   ├── battlex.c
+│   │   ├── battlnts.c
+│   │   ├── bbusters.c
+│   │   ├── beaminv.c
+│   │   ├── beathead.c
+│   │   ├── beezer.c
+│   │   ├── berzerk.c
+│   │   ├── bestleag.c
+│   │   ├── bfcobra.c
+│   │   ├── bfm_sc1.c
+│   │   ├── bfm_sc2.c
+│   │   ├── bfmsys85.c
+│   │   ├── big10.c
+│   │   ├── bigevglf.c
+│   │   ├── bigfghtr.c
+│   │   ├── bigstrkb.c
+│   │   ├── bingoc.c
+│   │   ├── bingor.c
+│   │   ├── bionicc.c
+│   │   ├── bishi.c
+│   │   ├── bishjan.c
+│   │   ├── bking.c
+│   │   ├── blackt96.c
+│   │   ├── bladestl.c
+│   │   ├── blitz.c
+│   │   ├── blktiger.c
+│   │   ├── blmbycar.c
+│   │   ├── blockade.c
+│   │   ├── blockhl.c
+│   │   ├── blockout.c
+│   │   ├── bloodbro.c
+│   │   ├── blstroid.c
+│   │   ├── blueprnt.c
+│   │   ├── bmcbowl.c
+│   │   ├── bnstars.c
+│   │   ├── bogeyman.c
+│   │   ├── bombjack.c
+│   │   ├── boogwing.c
+│   │   ├── bottom9.c
+│   │   ├── boxer.c
+│   │   ├── brkthru.c
+│   │   ├── bsktball.c
+│   │   ├── btime.c
+│   │   ├── btoads.c
+│   │   ├── bublbobl.c
+│   │   ├── buggychl.c
+│   │   ├── buster.c
+│   │   ├── bwidow.c
+│   │   ├── bwing.c
+│   │   ├── bzone.c
+│   │   ├── cabal.c
+│   │   ├── cabaret.c
+│   │   ├── calchase.c
+│   │   ├── calomega.c
+│   │   ├── calorie.c
+│   │   ├── canyon.c
+│   │   ├── capbowl.c
+│   │   ├── cardline.c
+│   │   ├── carjmbre.c
+│   │   ├── carpolo.c
+│   │   ├── carrera.c
+│   │   ├── caswin.c
+│   │   ├── cave.c
+│   │   ├── cb2001.c
+│   │   ├── cball.c
+│   │   ├── cbasebal.c
+│   │   ├── cbuster.c
+│   │   ├── ccastles.c
+│   │   ├── cchance.c
+│   │   ├── cchasm.c
+│   │   ├── cclimber.c
+│   │   ├── cdi.c
+│   │   ├── centiped.c
+│   │   ├── chaknpop.c
+│   │   ├── cham24.c
+│   │   ├── champbas.c
+│   │   ├── champbwl.c
+│   │   ├── chanbara.c
+│   │   ├── changela.c
+│   │   ├── cheekyms.c
+│   │   ├── chihiro.c
+│   │   ├── chinagat.c
+│   │   ├── chinsan.c
+│   │   ├── chqflag.c
+│   │   ├── chsuper.c
+│   │   ├── cidelsa.c
+│   │   ├── cinemat.c
+│   │   ├── circus.c
+│   │   ├── circusc.c
+│   │   ├── cischeat.c
+│   │   ├── citycon.c
+│   │   ├── clayshoo.c
+│   │   ├── cliffhgr.c
+│   │   ├── cloak.c
+│   │   ├── cloud9.c
+│   │   ├── clshroad.c
+│   │   ├── cmmb.c
+│   │   ├── cninja.c
+│   │   ├── cntsteer.c
+│   │   ├── coinmstr.c
+│   │   ├── coinmvga.c
+│   │   ├── cojag.c
+│   │   ├── combatsc.c
+│   │   ├── comebaby.c
+│   │   ├── commando.c
+│   │   ├── compgolf.c
+│   │   ├── contra.c
+│   │   ├── coolpool.c
+│   │   ├── coolridr.c
+│   │   ├── cop01.c
+│   │   ├── copsnrob.c
+│   │   ├── cosmic.c
+│   │   ├── cps1.c
+│   │   ├── cps2.c
+│   │   ├── cps3.c
+│   │   ├── crbaloon.c
+│   │   ├── crgolf.c
+│   │   ├── crimfght.c
+│   │   ├── crospang.c
+│   │   ├── crshrace.c
+│   │   ├── crystal.c
+│   │   ├── cshooter.c
+│   │   ├── cubeqst.c
+│   │   ├── cubocd32.c
+│   │   ├── cultures.c
+│   │   ├── cvs.c
+│   │   ├── cyberbal.c
+│   │   ├── cybertnk.c
+│   │   ├── cyclemb.c
+│   │   ├── d9final.c
+│   │   ├── dacholer.c
+│   │   ├── dambustr.c
+│   │   ├── darius.c
+│   │   ├── darkhors.c
+│   │   ├── darkmist.c
+│   │   ├── darkseal.c
+│   │   ├── dassault.c
+│   │   ├── dblewing.c
+│   │   ├── dbz.c
+│   │   ├── dcheese.c
+│   │   ├── dcon.c
+│   │   ├── dday.c
+│   │   ├── ddayjlc.c
+│   │   ├── ddealer.c
+│   │   ├── ddenlovr.c
+│   │   ├── ddragon.c
+│   │   ├── ddragon3.c
+│   │   ├── ddribble.c
+│   │   ├── ddz.c
+│   │   ├── deadang.c
+│   │   ├── dec0.c
+│   │   ├── dec8.c
+│   │   ├── deco156.c
+│   │   ├── deco32.c
+│   │   ├── deco_ld.c
+│   │   ├── deco_mlc.c
+│   │   ├── decocass.c
+│   │   ├── deniam.c
+│   │   ├── deshoros.c
+│   │   ├── destroyr.c
+│   │   ├── dgpix.c
+│   │   ├── dietgo.c
+│   │   ├── discoboy.c
+│   │   ├── diverboy.c
+│   │   ├── djboy.c
+│   │   ├── djmain.c
+│   │   ├── dkong.c
+│   │   ├── dlair.c
+│   │   ├── dmndrby.c
+│   │   ├── docastle.c
+│   │   ├── dogfgt.c
+│   │   ├── dominob.c
+│   │   ├── dooyong.c
+│   │   ├── dorachan.c
+│   │   ├── dotrikun.c
+│   │   ├── dragrace.c
+│   │   ├── dreamwld.c
+│   │   ├── drgnmst.c
+│   │   ├── dribling.c
+│   │   ├── drmicro.c
+│   │   ├── drtomy.c
+│   │   ├── drw80pkr.c
+│   │   ├── dunhuang.c
+│   │   ├── dwarfd.c
+│   │   ├── dynadice.c
+│   │   ├── dynax.c
+│   │   ├── dynduke.c
+│   │   ├── egghunt.c
+│   │   ├── embargo.c
+│   │   ├── enigma2.c
+│   │   ├── eolith.c
+│   │   ├── eolith16.c
+│   │   ├── eolithsp.c
+│   │   ├── epos.c
+│   │   ├── eprom.c
+│   │   ├── equites.c
+│   │   ├── ertictac.c
+│   │   ├── esd16.c
+│   │   ├── esh.c
+│   │   ├── espial.c
+│   │   ├── esripsys.c
+│   │   ├── ettrivia.c
+│   │   ├── exedexes.c
+│   │   ├── exerion.c
+│   │   ├── exidy.c
+│   │   ├── exidy440.c
+│   │   ├── expro02.c
+│   │   ├── exprraid.c
+│   │   ├── exterm.c
+│   │   ├── exzisus.c
+│   │   ├── f-32.c
+│   │   ├── f1gp.c
+│   │   ├── fantland.c
+│   │   ├── fastfred.c
+│   │   ├── fastlane.c
+│   │   ├── fcombat.c
+│   │   ├── fcrash.c
+│   │   ├── feversoc.c
+│   │   ├── fgoal.c
+│   │   ├── finalizr.c
+│   │   ├── firebeat.c
+│   │   ├── firefox.c
+│   │   ├── firetrap.c
+│   │   ├── firetrk.c
+│   │   ├── fitfight.c
+│   │   ├── flkatck.c
+│   │   ├── flower.c
+│   │   ├── flstory.c
+│   │   ├── flyball.c
+│   │   ├── foodf.c
+│   │   ├── forte2.c
+│   │   ├── fortecar.c
+│   │   ├── freekick.c
+│   │   ├── fromanc2.c
+│   │   ├── fromance.c
+│   │   ├── funkybee.c
+│   │   ├── funkyjet.c
+│   │   ├── funworld.c
+│   │   ├── funybubl.c
+│   │   ├── fuukifg2.c
+│   │   ├── fuukifg3.c
+│   │   ├── gaelco.c
+│   │   ├── gaelco2.c
+│   │   ├── gaelco3d.c
+│   │   ├── gaiden.c
+│   │   ├── gal3.c
+│   │   ├── galaga.c
+│   │   ├── galastrm.c
+│   │   ├── galaxi.c
+│   │   ├── galaxia.c
+│   │   ├── galaxian.c
+│   │   ├── galaxold.c
+│   │   ├── galdrvr.c
+│   │   ├── galivan.c
+│   │   ├── galpani2.c
+│   │   ├── galpani3.c
+│   │   ├── galpanic.c
+│   │   ├── galspnbl.c
+│   │   ├── gamecstl.c
+│   │   ├── gameplan.c
+│   │   ├── gaplus.c
+│   │   ├── gatron.c
+│   │   ├── gauntlet.c
+│   │   ├── gberet.c
+│   │   ├── gbusters.c
+│   │   ├── gcpinbal.c
+│   │   ├── gei.c
+│   │   ├── genesisb.c
+│   │   ├── ggconnie.c
+│   │   ├── ghosteo.c
+│   │   ├── gijoe.c
+│   │   ├── ginganin.c
+│   │   ├── gladiatr.c
+│   │   ├── glass.c
+│   │   ├── gng.c
+│   │   ├── go2000.c
+│   │   ├── goal92.c
+│   │   ├── goindol.c
+│   │   ├── goldnpkr.c
+│   │   ├── goldstar.c
+│   │   ├── gomoku.c
+│   │   ├── good.c
+│   │   ├── goodejan.c
+│   │   ├── gotcha.c
+│   │   ├── gottlieb.c
+│   │   ├── gotya.c
+│   │   ├── gpworld.c
+│   │   ├── gradius3.c
+│   │   ├── grchamp.c
+│   │   ├── gridlee.c
+│   │   ├── groundfx.c
+│   │   ├── gstream.c
+│   │   ├── gstriker.c
+│   │   ├── gsword.c
+│   │   ├── gticlub.c
+│   │   ├── guab.c
+│   │   ├── gumbo.c
+│   │   ├── gunbustr.c
+│   │   ├── gundealr.c
+│   │   ├── gunpey.c
+│   │   ├── gunsmoke.c
+│   │   ├── gyruss.c
+│   │   ├── halleys.c
+│   │   ├── hanaawas.c
+│   │   ├── harddriv.c
+│   │   ├── hcastle.c
+│   │   ├── hexion.c
+│   │   ├── higemaru.c
+│   │   ├── highvdeo.c
+│   │   ├── hikaru.c
+│   │   ├── himesiki.c
+│   │   ├── hitme.c
+│   │   ├── hitpoker.c
+│   │   ├── hnayayoi.c
+│   │   ├── hng64.c
+│   │   ├── holeland.c
+│   │   ├── homedata.c
+│   │   ├── homerun.c
+│   │   ├── hornet.c
+│   │   ├── hotblock.c
+│   │   ├── hshavoc.c
+│   │   ├── hvyunit.c
+│   │   ├── hyhoo.c
+│   │   ├── hyperspt.c
+│   │   ├── hyprduel.c
+│   │   ├── igs009.c
+│   │   ├── igs011.c
+│   │   ├── igs017.c
+│   │   ├── igs_m027.c
+│   │   ├── igspoker.c
+│   │   ├── ikki.c
+│   │   ├── ilpag.c
+│   │   ├── imolagp.c
+│   │   ├── intrscti.c
+│   │   ├── inufuku.c
+│   │   ├── iqblock.c
+│   │   ├── irobot.c
+│   │   ├── ironhors.c
+│   │   ├── istellar.c
+│   │   ├── itech32.c
+│   │   ├── itech8.c
+│   │   ├── itgambl2.c
+│   │   ├── itgambl3.c
+│   │   ├── itgamble.c
+│   │   ├── jack.c
+│   │   ├── jackal.c
+│   │   ├── jackie.c
+│   │   ├── jackpool.c
+│   │   ├── jailbrek.c
+│   │   ├── jalmah.c
+│   │   ├── jangou.c
+│   │   ├── jantotsu.c
+│   │   ├── jchan.c
+│   │   ├── jedi.c
+│   │   ├── jokrwild.c
+│   │   ├── jollyjgr.c
+│   │   ├── jongkyo.c
+│   │   ├── jpmimpct.c
+│   │   ├── jpmsys5.c
+│   │   ├── jrpacman.c
+│   │   ├── junofrst.c
+│   │   ├── kaneko16.c
+│   │   ├── kangaroo.c
+│   │   ├── karnov.c
+│   │   ├── kchamp.c
+│   │   ├── kickgoal.c
+│   │   ├── kingdrby.c
+│   │   ├── kingobox.c
+│   │   ├── kingpin.c
+│   │   ├── kinst.c
+│   │   ├── klax.c
+│   │   ├── kncljoe.c
+│   │   ├── koftball.c
+│   │   ├── koikoi.c
+│   │   ├── konamigq.c
+│   │   ├── konamigv.c
+│   │   ├── konamigx.c
+│   │   ├── konamim2.c
+│   │   ├── kongambl.c
+│   │   ├── kopunch.c
+│   │   ├── ksayakyu.c
+│   │   ├── ksys573.c
+│   │   ├── kungfur.c
+│   │   ├── kyugo.c
+│   │   ├── labyrunr.c
+│   │   ├── ladybug.c
+│   │   ├── ladyfrog.c
+│   │   ├── laserbas.c
+│   │   ├── laserbat.c
+│   │   ├── lasso.c
+│   │   ├── lastduel.c
+│   │   ├── lastfght.c
+│   │   ├── lazercmd.c
+│   │   ├── legionna.c
+│   │   ├── leland.c
+│   │   ├── lemmings.c
+│   │   ├── lethal.c
+│   │   ├── lethalj.c
+│   │   ├── lgp.c
+│   │   ├── liberate.c
+│   │   ├── liberatr.c
+│   │   ├── limenko.c
+│   │   ├── littlerb.c
+│   │   ├── lkage.c
+│   │   ├── lockon.c
+│   │   ├── looping.c
+│   │   ├── lordgun.c
+│   │   ├── lsasquad.c
+│   │   ├── ltcasino.c
+│   │   ├── luckgrln.c
+│   │   ├── lucky74.c
+│   │   ├── lvcards.c
+│   │   ├── lwings.c
+│   │   ├── m10.c
+│   │   ├── m107.c
+│   │   ├── m14.c
+│   │   ├── m52.c
+│   │   ├── m57.c
+│   │   ├── m58.c
+│   │   ├── m62.c
+│   │   ├── m63.c
+│   │   ├── m72.c
+│   │   ├── m79amb.c
+│   │   ├── m90.c
+│   │   ├── m92.c
+│   │   ├── macrossp.c
+│   │   ├── macs.c
+│   │   ├── madalien.c
+│   │   ├── madmotor.c
+│   │   ├── magic10.c
+│   │   ├── magicard.c
+│   │   ├── magicfly.c
+│   │   ├── magictg.c
+│   │   ├── magmax.c
+│   │   ├── mainevt.c
+│   │   ├── mainsnk.c
+│   │   ├── malzak.c
+│   │   ├── mappy.c
+│   │   ├── marineb.c
+│   │   ├── marinedt.c
+│   │   ├── mario.c
+│   │   ├── markham.c
+│   │   ├── mastboy.c
+│   │   ├── matmania.c
+│   │   ├── maxaflex.c
+│   │   ├── maygay1b.c
+│   │   ├── maygayv1.c
+│   │   ├── mayumi.c
+│   │   ├── mazerbla.c
+│   │   ├── mcatadv.c
+│   │   ├── mcr.c
+│   │   ├── mcr3.c
+│   │   ├── mcr68.c
+│   │   ├── meadows.c
+│   │   ├── mediagx.c
+│   │   ├── megadriv.c
+│   │   ├── megaplay.c
+│   │   ├── megasys1.c
+│   │   ├── megatech.c
+│   │   ├── megazone.c
+│   │   ├── meijinsn.c
+│   │   ├── merit.c
+│   │   ├── meritm.c
+│   │   ├── mermaid.c
+│   │   ├── metalmx.c
+│   │   ├── metlclsh.c
+│   │   ├── metro.c
+│   │   ├── mexico86.c
+│   │   ├── mgolf.c
+│   │   ├── mhavoc.c
+│   │   ├── micro3d.c
+│   │   ├── midas.c
+│   │   ├── midtunit.c
+│   │   ├── midvunit.c
+│   │   ├── midwunit.c
+│   │   ├── midxunit.c
+│   │   ├── midyunit.c
+│   │   ├── midzeus.c
+│   │   ├── mikie.c
+│   │   ├── mil4000.c
+│   │   ├── miniboy7.c
+│   │   ├── minivadr.c
+│   │   ├── mirage.c
+│   │   ├── mirax.c
+│   │   ├── missb2.c
+│   │   ├── missile.c
+│   │   ├── mitchell.c
+│   │   ├── mjkjidai.c
+│   │   ├── mjsister.c
+│   │   ├── mlanding.c
+│   │   ├── model1.c
+│   │   ├── model2.c
+│   │   ├── model3.c
+│   │   ├── mogura.c
+│   │   ├── mole.c
+│   │   ├── momoko.c
+│   │   ├── monzagp.c
+│   │   ├── moo.c
+│   │   ├── mosaic.c
+│   │   ├── mouser.c
+│   │   ├── mpoker.c
+│   │   ├── mpu4.c
+│   │   ├── mpu4drvr.c
+│   │   ├── mpu5.c
+│   │   ├── mquake.c
+│   │   ├── mrdo.c
+│   │   ├── mrflea.c
+│   │   ├── mrjong.c
+│   │   ├── ms32.c
+│   │   ├── msisaac.c
+│   │   ├── mugsmash.c
+│   │   ├── multfish.c
+│   │   ├── multigam.c
+│   │   ├── munchmo.c
+│   │   ├── murogem.c
+│   │   ├── murogmbl.c
+│   │   ├── mustache.c
+│   │   ├── mw8080bw.c
+│   │   ├── mwarr.c
+│   │   ├── mystston.c
+│   │   ├── mystwarr.c
+│   │   ├── n8080.c
+│   │   ├── namcofl.c
+│   │   ├── namcoic.c
+│   │   ├── namcona1.c
+│   │   ├── namconb1.c
+│   │   ├── namcond1.c
+│   │   ├── namcops2.c
+│   │   ├── namcos1.c
+│   │   ├── namcos10.c
+│   │   ├── namcos11.c
+│   │   ├── namcos12.c
+│   │   ├── namcos2.c
+│   │   ├── namcos21.c
+│   │   ├── namcos22.c
+│   │   ├── namcos23.c
+│   │   ├── namcos86.c
+│   │   ├── naomi.c
+│   │   ├── naughtyb.c
+│   │   ├── nbmj8688.c
+│   │   ├── nbmj8891.c
+│   │   ├── nbmj8900.c
+│   │   ├── nbmj8991.c
+│   │   ├── nbmj9195.c
+│   │   ├── nemesis.c
+│   │   ├── neodrvr.c
+│   │   ├── neogeo.c
+│   │   ├── neptunp2.c
+│   │   ├── news.c
+│   │   ├── nightgal.c
+│   │   ├── ninjakd2.c
+│   │   ├── ninjaw.c
+│   │   ├── nitedrvr.c
+│   │   ├── niyanpai.c
+│   │   ├── nmg5.c
+│   │   ├── nmk16.c
+│   │   ├── norautp.c
+│   │   ├── nova2001.c
+│   │   ├── nss.c
+│   │   ├── nwk-tr.c
+│   │   ├── nycaptor.c
+│   │   ├── nyny.c
+│   │   ├── offtwall.c
+│   │   ├── ohmygod.c
+│   │   ├── ojankohs.c
+│   │   ├── olibochu.c
+│   │   ├── omegrace.c
+│   │   ├── oneshot.c
+│   │   ├── onetwo.c
+│   │   ├── opwolf.c
+│   │   ├── orbit.c
+│   │   ├── othello.c
+│   │   ├── othldrby.c
+│   │   ├── othunder.c
+│   │   ├── overdriv.c
+│   │   ├── pachifev.c
+│   │   ├── pacland.c
+│   │   ├── pacman.c
+│   │   ├── pandoras.c
+│   │   ├── pangofun.c
+│   │   ├── panicr.c
+│   │   ├── paradise.c
+│   │   ├── paranoia.c
+│   │   ├── parodius.c
+│   │   ├── pasha2.c
+│   │   ├── pass.c
+│   │   ├── pastelg.c
+│   │   ├── pbaction.c
+│   │   ├── pcat_dyn.c
+│   │   ├── pcat_nit.c
+│   │   ├── pcktgal.c
+│   │   ├── pcxt.c
+│   │   ├── pengadvb.c
+│   │   ├── pengo.c
+│   │   ├── peplus.c
+│   │   ├── pgm.c
+│   │   ├── phoenix.c
+│   │   ├── photon.c
+│   │   ├── photon2.c
+│   │   ├── photoply.c
+│   │   ├── pingpong.c
+│   │   ├── pinkiri8.c
+│   │   ├── pipedrm.c
+│   │   ├── pipeline.c
+│   │   ├── pirates.c
+│   │   ├── pitnrun.c
+│   │   ├── pkscram.c
+│   │   ├── pktgaldx.c
+│   │   ├── playch10.c
+│   │   ├── playmark.c
+│   │   ├── plygonet.c
+│   │   ├── pntnpuzl.c
+│   │   ├── pokechmp.c
+│   │   ├── poker72.c
+│   │   ├── polepos.c
+│   │   ├── policetr.c
+│   │   ├── polyplay.c
+│   │   ├── poo.c
+│   │   ├── poolshrk.c
+│   │   ├── pooyan.c
+│   │   ├── popeye.c
+│   │   ├── popper.c
+│   │   ├── portrait.c
+│   │   ├── powerbal.c
+│   │   ├── powerins.c
+│   │   ├── ppmast93.c
+│   │   ├── prehisle.c
+│   │   ├── progolf.c
+│   │   ├── psattack.c
+│   │   ├── psikyo.c
+│   │   ├── psikyo4.c
+│   │   ├── psikyosh.c
+│   │   ├── psychic5.c
+│   │   ├── pturn.c
+│   │   ├── puckpkmn.c
+│   │   ├── punchout.c
+│   │   ├── pushman.c
+│   │   ├── pzletime.c
+│   │   ├── qdrmfgp.c
+│   │   ├── qix.c
+│   │   ├── quakeat.c
+│   │   ├── quantum.c
+│   │   ├── quasar.c
+│   │   ├── queen.c
+│   │   ├── quizdna.c
+│   │   ├── quizo.c
+│   │   ├── quizpani.c
+│   │   ├── quizpun2.c
+│   │   ├── r2dtank.c
+│   │   ├── rabbit.c
+│   │   ├── raiden.c
+│   │   ├── raiden2.c
+│   │   ├── rainbow.c
+│   │   ├── rallyx.c
+│   │   ├── rampart.c
+│   │   ├── rastan.c
+│   │   ├── rbmk.c
+│   │   ├── rcorsair.c
+│   │   ├── re900.c
+│   │   ├── realbrk.c
+│   │   ├── redalert.c
+│   │   ├── redclash.c
+│   │   ├── relief.c
+│   │   ├── renegade.c
+│   │   ├── retofinv.c
+│   │   ├── rgum.c
+│   │   ├── rmhaihai.c
+│   │   ├── rockrage.c
+│   │   ├── rocnrope.c
+│   │   ├── rohga.c
+│   │   ├── rollerg.c
+│   │   ├── rollrace.c
+│   │   ├── rotaryf.c
+│   │   ├── roul.c
+│   │   ├── route16.c
+│   │   ├── royalmah.c
+│   │   ├── rpunch.c
+│   │   ├── runaway.c
+│   │   ├── rungun.c
+│   │   ├── safarir.c
+│   │   ├── sandscrp.c
+│   │   ├── sangho.c
+│   │   ├── sauro.c
+│   │   ├── sbasketb.c
+│   │   ├── sbowling.c
+│   │   ├── sbrkout.c
+│   │   ├── sbugger.c
+│   │   ├── scobra.c
+│   │   ├── scotrsht.c
+│   │   ├── scramble.c
+│   │   ├── scregg.c
+│   │   ├── sderby.c
+│   │   ├── seattle.c
+│   │   ├── segac2.c
+│   │   ├── segae.c
+│   │   ├── segag80r.c
+│   │   ├── segag80v.c
+│   │   ├── segahang.c
+│   │   ├── segald.c
+│   │   ├── segamsys.c
+│   │   ├── segaorun.c
+│   │   ├── segas16a.c
+│   │   ├── segas16b.c
+│   │   ├── segas18.c
+│   │   ├── segas24.c
+│   │   ├── segas32.c
+│   │   ├── segaxbd.c
+│   │   ├── segaybd.c
+│   │   ├── seibuspi.c
+│   │   ├── seicross.c
+│   │   ├── sengokmj.c
+│   │   ├── senjyo.c
+│   │   ├── seta.c
+│   │   ├── seta2.c
+│   │   ├── sf.c
+│   │   ├── sfbonus.c
+│   │   ├── sfcbox.c
+│   │   ├── sfkick.c
+│   │   ├── sg1000a.c
+│   │   ├── shadfrce.c
+│   │   ├── shangha3.c
+│   │   ├── shanghai.c
+│   │   ├── shangkid.c
+│   │   ├── shaolins.c
+│   │   ├── shisen.c
+│   │   ├── shootout.c
+│   │   ├── shougi.c
+│   │   ├── shuuz.c
+│   │   ├── sidearms.c
+│   │   ├── sidepckt.c
+│   │   ├── sigmab52.c
+│   │   ├── sigmab98.c
+│   │   ├── silkroad.c
+│   │   ├── simpl156.c
+│   │   ├── simpsons.c
+│   │   ├── skeetsht.c
+│   │   ├── skimaxx.c
+│   │   ├── skullxbo.c
+│   │   ├── skyarmy.c
+│   │   ├── skydiver.c
+│   │   ├── skyfox.c
+│   │   ├── skykid.c
+│   │   ├── skylncr.c
+│   │   ├── skyraid.c
+│   │   ├── slapfght.c
+│   │   ├── slapshot.c
+│   │   ├── sliver.c
+│   │   ├── slotcarn.c
+│   │   ├── sms.c
+│   │   ├── snesb.c
+│   │   ├── snk.c
+│   │   ├── snk6502.c
+│   │   ├── snk68.c
+│   │   ├── snookr10.c
+│   │   ├── snowbros.c
+│   │   ├── solomon.c
+│   │   ├── sonson.c
+│   │   ├── sothello.c
+│   │   ├── spacefb.c
+│   │   ├── spaceg.c
+│   │   ├── spbactn.c
+│   │   ├── spcforce.c
+│   │   ├── spdodgeb.c
+│   │   ├── speedatk.c
+│   │   ├── speedbal.c
+│   │   ├── speedspn.c
+│   │   ├── speglsht.c
+│   │   ├── spiders.c
+│   │   ├── splash.c
+│   │   ├── spoker.c
+│   │   ├── spool99.c
+│   │   ├── sprcros2.c
+│   │   ├── sprint2.c
+│   │   ├── sprint4.c
+│   │   ├── sprint8.c
+│   │   ├── spy.c
+│   │   ├── srmp2.c
+│   │   ├── srmp5.c
+│   │   ├── srmp6.c
+│   │   ├── srumbler.c
+│   │   ├── ssfindo.c
+│   │   ├── ssgbl.c
+│   │   ├── sshangha.c
+│   │   ├── ssingles.c
+│   │   ├── sslam.c
+│   │   ├── ssozumo.c
+│   │   ├── sspeedr.c
+│   │   ├── ssrj.c
+│   │   ├── sstrangr.c
+│   │   ├── ssv.c
+│   │   ├── st0016.c
+│   │   ├── stactics.c
+│   │   ├── stadhero.c
+│   │   ├── starcrus.c
+│   │   ├── starfire.c
+│   │   ├── starshp1.c
+│   │   ├── starwars.c
+│   │   ├── statriv2.c
+│   │   ├── stepstag.c
+│   │   ├── stfight.c
+│   │   ├── stlforce.c
+│   │   ├── strnskil.c
+│   │   ├── stv.c
+│   │   ├── stvinit.c
+│   │   ├── sub.c
+│   │   ├── subs.c
+│   │   ├── subsino.c
+│   │   ├── suna16.c
+│   │   ├── suna8.c
+│   │   ├── supbtime.c
+│   │   ├── supdrapo.c
+│   │   ├── superchs.c
+│   │   ├── superdq.c
+│   │   ├── superqix.c
+│   │   ├── supertnk.c
+│   │   ├── suprgolf.c
+│   │   ├── suprloco.c
+│   │   ├── suprnova.c
+│   │   ├── suprridr.c
+│   │   ├── suprslam.c
+│   │   ├── surpratk.c
+│   │   ├── system1.c
+│   │   ├── system16.c
+│   │   ├── tagteam.c
+│   │   ├── tail2nos.c
+│   │   ├── taito_b.c
+│   │   ├── taito_f2.c
+│   │   ├── taito_f3.c
+│   │   ├── taito_h.c
+│   │   ├── taito_l.c
+│   │   ├── taito_o.c
+│   │   ├── taito_x.c
+│   │   ├── taito_z.c
+│   │   ├── taitoair.c
+│   │   ├── taitogn.c
+│   │   ├── taitojc.c
+│   │   ├── taitopjc.c
+│   │   ├── taitosj.c
+│   │   ├── taitotz.c
+│   │   ├── taitowlf.c
+│   │   ├── tank8.c
+│   │   ├── tankbatt.c
+│   │   ├── tankbust.c
+│   │   ├── taotaido.c
+│   │   ├── targeth.c
+│   │   ├── tatsumi.c
+│   │   ├── tattack.c
+│   │   ├── taxidrvr.c
+│   │   ├── tbowl.c
+│   │   ├── tceptor.c
+│   │   ├── tcl.c
+│   │   ├── tecmo.c
+│   │   ├── tecmo16.c
+│   │   ├── tecmosys.c
+│   │   ├── tehkanwc.c
+│   │   ├── tempest.c
+│   │   ├── terracre.c
+│   │   ├── tetrisp2.c
+│   │   ├── tgtpanic.c
+│   │   ├── thayers.c
+│   │   ├── thedeep.c
+│   │   ├── thepit.c
+│   │   ├── thief.c
+│   │   ├── thoop2.c
+│   │   ├── thunderj.c
+│   │   ├── thunderx.c
+│   │   ├── tiamc1.c
+│   │   ├── tickee.c
+│   │   ├── tigeroad.c
+│   │   ├── timelimt.c
+│   │   ├── timeplt.c
+│   │   ├── timetrv.c
+│   │   ├── tmaster.c
+│   │   ├── tmmjprd.c
+│   │   ├── tmnt.c
+│   │   ├── tnzs.c
+│   │   ├── toaplan1.c
+│   │   ├── toaplan2.c
+│   │   ├── toki.c
+│   │   ├── tokyocop.c
+│   │   ├── tomcat.c
+│   │   ├── toobin.c
+│   │   ├── topshoot.c
+│   │   ├── topspeed.c
+│   │   ├── toratora.c
+│   │   ├── tourtabl.c
+│   │   ├── toypop.c
+│   │   ├── tp84.c
+│   │   ├── trackfld.c
+│   │   ├── travrusa.c
+│   │   ├── triforce.c
+│   │   ├── triplhnt.c
+│   │   ├── truco.c
+│   │   ├── trucocl.c
+│   │   ├── trvmadns.c
+│   │   ├── trvquest.c
+│   │   ├── tryout.c
+│   │   ├── tsamurai.c
+│   │   ├── ttchamp.c
+│   │   ├── tubep.c
+│   │   ├── tugboat.c
+│   │   ├── tumbleb.c
+│   │   ├── tumblep.c
+│   │   ├── tunhunt.c
+│   │   ├── turbo.c
+│   │   ├── turrett.c
+│   │   ├── tutankhm.c
+│   │   ├── twin16.c
+│   │   ├── twincobr.c
+│   │   ├── twinkle.c
+│   │   ├── twins.c
+│   │   ├── tx1.c
+│   │   ├── uapce.c
+│   │   ├── ultraman.c
+│   │   ├── ultratnk.c
+│   │   ├── ultrsprt.c
+│   │   ├── undrfire.c
+│   │   ├── unico.c
+│   │   ├── upscope.c
+│   │   ├── usgames.c
+│   │   ├── vamphalf.c
+│   │   ├── vaportra.c
+│   │   ├── vastar.c
+│   │   ├── vball.c
+│   │   ├── vcombat.c
+│   │   ├── vega.c
+│   │   ├── vegaeo.c
+│   │   ├── vegas.c
+│   │   ├── vendetta.c
+│   │   ├── vertigo.c
+│   │   ├── vicdual.c
+│   │   ├── victory.c
+│   │   ├── videopin.c
+│   │   ├── videopkr.c
+│   │   ├── vigilant.c
+│   │   ├── vindictr.c
+│   │   ├── viper.c
+│   │   ├── vmetal.c
+│   │   ├── volfied.c
+│   │   ├── vp101.c
+│   │   ├── vpoker.c
+│   │   ├── vroulet.c
+│   │   ├── vsnes.c
+│   │   ├── vulgus.c
+│   │   ├── wallc.c
+│   │   ├── wardner.c
+│   │   ├── warpwarp.c
+│   │   ├── warriorb.c
+│   │   ├── wc90.c
+│   │   ├── wc90b.c
+│   │   ├── wecleman.c
+│   │   ├── welltris.c
+│   │   ├── wgp.c
+│   │   ├── wheelfir.c
+│   │   ├── williams.c
+│   │   ├── wink.c
+│   │   ├── wiping.c
+│   │   ├── witch.c
+│   │   ├── wiz.c
+│   │   ├── wldarrow.c
+│   │   ├── wolfpack.c
+│   │   ├── wrally.c
+│   │   ├── wwfsstar.c
+│   │   ├── wwfwfest.c
+│   │   ├── xain.c
+│   │   ├── xexex.c
+│   │   ├── xmen.c
+│   │   ├── xorworld.c
+│   │   ├── xtheball.c
+│   │   ├── xxmissio.c
+│   │   ├── xybots.c
+│   │   ├── xyonix.c
+│   │   ├── yiear.c
+│   │   ├── yunsun16.c
+│   │   ├── yunsung8.c
+│   │   ├── zac2650.c
+│   │   ├── zaccaria.c
+│   │   ├── zaxxon.c
+│   │   ├── zerozone.c
+│   │   ├── zn.c
+│   │   ├── zodiack.c
+│   │   └── zr107.c
+│   ├── etc
+│   │   ├── fd1094dp.c
+│   │   └── jrcrypt.c
+│   ├── includes
+│   │   ├── 1942.h
+│   │   ├── 1943.h
+│   │   ├── 20pacgal.h
+│   │   ├── 4enraya.h
+│   │   ├── 88games.h
+│   │   ├── actfancr.h
+│   │   ├── aeroboto.h
+│   │   ├── aerofgt.h
+│   │   ├── airbustr.h
+│   │   ├── ajax.h
+│   │   ├── aliens.h
+│   │   ├── alpha68k.h
+│   │   ├── ambush.h
+│   │   ├── amiga.h
+│   │   ├── amspdwy.h
+│   │   ├── angelkds.h
+│   │   ├── appoooh.h
+│   │   ├── aquarium.h
+│   │   ├── arabian.h
+│   │   ├── arcadecl.h
+│   │   ├── archimds.h
+│   │   ├── argus.h
+│   │   ├── arkanoid.h
+│   │   ├── armedf.h
+│   │   ├── artmagic.h
+│   │   ├── ashnojoe.h
+│   │   ├── asterix.h
+│   │   ├── asteroid.h
+│   │   ├── astrocde.h
+│   │   ├── astrof.h
+│   │   ├── asuka.h
+│   │   ├── atari.h
+│   │   ├── atarifb.h
+│   │   ├── atarig1.h
+│   │   ├── atarig42.h
+│   │   ├── atarigt.h
+│   │   ├── atarigx2.h
+│   │   ├── atarisy1.h
+│   │   ├── atarisy2.h
+│   │   ├── atetris.h
+│   │   ├── avalnche.h
+│   │   ├── aztarac.h
+│   │   ├── badlands.h
+│   │   ├── bagman.h
+│   │   ├── balsente.h
+│   │   ├── bankp.h
+│   │   ├── batman.h
+│   │   ├── battlane.h
+│   │   ├── battlex.h
+│   │   ├── battlnts.h
+│   │   ├── beathead.h
+│   │   ├── beezer.h
+│   │   ├── bigevglf.h
+│   │   ├── bigstrkb.h
+│   │   ├── bionicc.h
+│   │   ├── bishi.h
+│   │   ├── bladestl.h
+│   │   ├── blktiger.h
+│   │   ├── blmbycar.h
+│   │   ├── blockade.h
+│   │   ├── blockhl.h
+│   │   ├── blockout.h
+│   │   ├── blstroid.h
+│   │   ├── blueprnt.h
+│   │   ├── bogeyman.h
+│   │   ├── bombjack.h
+│   │   ├── boogwing.h
+│   │   ├── bottom9.h
+│   │   ├── brkthru.h
+│   │   ├── bsktball.h
+│   │   ├── btime.h
+│   │   ├── btoads.h
+│   │   ├── bublbobl.h
+│   │   ├── buggychl.h
+│   │   ├── bwing.h
+│   │   ├── bzone.h
+│   │   ├── cabal.h
+│   │   ├── canyon.h
+│   │   ├── capbowl.h
+│   │   ├── carjmbre.h
+│   │   ├── carpolo.h
+│   │   ├── cave.h
+│   │   ├── cbasebal.h
+│   │   ├── cbuster.h
+│   │   ├── ccastles.h
+│   │   ├── cchasm.h
+│   │   ├── cchip.h
+│   │   ├── cclimber.h
+│   │   ├── centiped.h
+│   │   ├── chaknpop.h
+│   │   ├── champbas.h
+│   │   ├── changela.h
+│   │   ├── cheekyms.h
+│   │   ├── chqflag.h
+│   │   ├── cidelsa.h
+│   │   ├── cinemat.h
+│   │   ├── circus.h
+│   │   ├── circusc.h
+│   │   ├── cischeat.h
+│   │   ├── citycon.h
+│   │   ├── cloak.h
+│   │   ├── cloud9.h
+│   │   ├── cninja.h
+│   │   ├── combatsc.h
+│   │   ├── commando.h
+│   │   ├── compgolf.h
+│   │   ├── contra.h
+│   │   ├── coolpool.h
+│   │   ├── cop01.h
+│   │   ├── copsnrob.h
+│   │   ├── cosmic.h
+│   │   ├── cps1.h
+│   │   ├── cps3.h
+│   │   ├── crbaloon.h
+│   │   ├── crgolf.h
+│   │   ├── crimfght.h
+│   │   ├── crospang.h
+│   │   ├── crshrace.h
+│   │   ├── cubocd32.h
+│   │   ├── cvs.h
+│   │   ├── cyberbal.h
+│   │   ├── darius.h
+│   │   ├── dassault.h
+│   │   ├── dbz.h
+│   │   ├── dc.h
+│   │   ├── dcheese.h
+│   │   ├── dday.h
+│   │   ├── ddragon.h
+│   │   ├── ddragon3.h
+│   │   ├── ddribble.h
+│   │   ├── dec0.h
+│   │   ├── dec8.h
+│   │   ├── deco32.h
+│   │   ├── decocrpt.h
+│   │   ├── decoprot.h
+│   │   ├── deniam.h
+│   │   ├── dietgo.h
+│   │   ├── djboy.h
+│   │   ├── dkong.h
+│   │   ├── docastle.h
+│   │   ├── dogfgt.h
+│   │   ├── dooyong.h
+│   │   ├── dragrace.h
+│   │   ├── drgnmst.h
+│   │   ├── dribling.h
+│   │   ├── drmicro.h
+│   │   ├── dynax.h
+│   │   ├── eolithsp.h
+│   │   ├── epos.h
+│   │   ├── eprom.h
+│   │   ├── equites.h
+│   │   ├── esd16.h
+│   │   ├── espial.h
+│   │   ├── esripsys.h
+│   │   ├── exedexes.h
+│   │   ├── exerion.h
+│   │   ├── exidy.h
+│   │   ├── exidy440.h
+│   │   ├── exprraid.h
+│   │   ├── exterm.h
+│   │   ├── f1gp.h
+│   │   ├── fantland.h
+│   │   ├── fastfred.h
+│   │   ├── fastlane.h
+│   │   ├── fcombat.h
+│   │   ├── fgoal.h
+│   │   ├── finalizr.h
+│   │   ├── firetrap.h
+│   │   ├── firetrk.h
+│   │   ├── fitfight.h
+│   │   ├── flkatck.h
+│   │   ├── flower.h
+│   │   ├── flstory.h
+│   │   ├── foodf.h
+│   │   ├── freekick.h
+│   │   ├── fromanc2.h
+│   │   ├── fromance.h
+│   │   ├── funkybee.h
+│   │   ├── funkyjet.h
+│   │   ├── funybubl.h
+│   │   ├── fuukifg2.h
+│   │   ├── fuukifg3.h
+│   │   ├── gaelco.h
+│   │   ├── gaelco2.h
+│   │   ├── gaelco3d.h
+│   │   ├── gaelcrpt.h
+│   │   ├── gaiden.h
+│   │   ├── galaga.h
+│   │   ├── galaxian.h
+│   │   ├── galaxold.h
+│   │   ├── galivan.h
+│   │   ├── galspnbl.h
+│   │   ├── gameplan.h
+│   │   ├── gaplus.h
+│   │   ├── gauntlet.h
+│   │   ├── gberet.h
+│   │   ├── gbusters.h
+│   │   ├── gcpinbal.h
+│   │   ├── genesis.h
+│   │   ├── gijoe.h
+│   │   ├── ginganin.h
+│   │   ├── glass.h
+│   │   ├── gng.h
+│   │   ├── goal92.h
+│   │   ├── goindol.h
+│   │   ├── goldstar.h
+│   │   ├── gomoku.h
+│   │   ├── gotcha.h
+│   │   ├── gottlieb.h
+│   │   ├── gotya.h
+│   │   ├── gradius3.h
+│   │   ├── grchamp.h
+│   │   ├── gridlee.h
+│   │   ├── gstriker.h
+│   │   ├── gumbo.h
+│   │   ├── gundealr.h
+│   │   ├── gunsmoke.h
+│   │   ├── gyruss.h
+│   │   ├── hanaawas.h
+│   │   ├── harddriv.h
+│   │   ├── hcastle.h
+│   │   ├── higemaru.h
+│   │   ├── himesiki.h
+│   │   ├── hitme.h
+│   │   ├── hnayayoi.h
+│   │   ├── hng64.h
+│   │   ├── holeland.h
+│   │   ├── homedata.h
+│   │   ├── homerun.h
+│   │   ├── hyprduel.h
+│   │   ├── ikki.h
+│   │   ├── inufuku.h
+│   │   ├── iqblock.h
+│   │   ├── iremipt.h
+│   │   ├── iremz80.h
+│   │   ├── irobot.h
+│   │   ├── ironhors.h
+│   │   ├── itech32.h
+│   │   ├── itech8.h
+│   │   ├── jack.h
+│   │   ├── jackal.h
+│   │   ├── jaguar.h
+│   │   ├── jailbrek.h
+│   │   ├── jedi.h
+│   │   ├── jpmimpct.h
+│   │   ├── kaneko16.h
+│   │   ├── kangaroo.h
+│   │   ├── karnov.h
+│   │   ├── kchamp.h
+│   │   ├── kickgoal.h
+│   │   ├── kingobox.h
+│   │   ├── klax.h
+│   │   ├── kncljoe.h
+│   │   ├── konamigx.h
+│   │   ├── konamipt.h
+│   │   ├── kopunch.h
+│   │   ├── ksayakyu.h
+│   │   ├── kyugo.h
+│   │   ├── labyrunr.h
+│   │   ├── ladybug.h
+│   │   ├── ladyfrog.h
+│   │   ├── laserbat.h
+│   │   ├── lasso.h
+│   │   ├── lastduel.h
+│   │   ├── lazercmd.h
+│   │   ├── legionna.h
+│   │   ├── leland.h
+│   │   ├── lemmings.h
+│   │   ├── lethal.h
+│   │   ├── lethalj.h
+│   │   ├── liberate.h
+│   │   ├── liberatr.h
+│   │   ├── lkage.h
+│   │   ├── lockon.h
+│   │   ├── lordgun.h
+│   │   ├── lsasquad.h
+│   │   ├── lwings.h
+│   │   ├── m10.h
+│   │   ├── m107.h
+│   │   ├── m72.h
+│   │   ├── m79amb.h
+│   │   ├── m92.h
+│   │   ├── macrossp.h
+│   │   ├── madalien.h
+│   │   ├── madmotor.h
+│   │   ├── mainevt.h
+│   │   ├── malzak.h
+│   │   ├── mappy.h
+│   │   ├── mario.h
+│   │   ├── markham.h
+│   │   ├── matmania.h
+│   │   ├── mcatadv.h
+│   │   ├── mcr.h
+│   │   ├── meadows.h
+│   │   ├── megadriv.h
+│   │   ├── megasys1.h
+│   │   ├── megazone.h
+│   │   ├── mermaid.h
+│   │   ├── metalmx.h
+│   │   ├── metlclsh.h
+│   │   ├── metro.h
+│   │   ├── mexico86.h
+│   │   ├── mhavoc.h
+│   │   ├── micro3d.h
+│   │   ├── midtunit.h
+│   │   ├── midvunit.h
+│   │   ├── midwunit.h
+│   │   ├── midyunit.h
+│   │   ├── midzeus.h
+│   │   ├── mikie.h
+│   │   ├── mitchell.h
+│   │   ├── mjkjidai.h
+│   │   ├── model1.h
+│   │   ├── model2.h
+│   │   ├── model3.h
+│   │   ├── momoko.h
+│   │   ├── moo.h
+│   │   ├── mosaic.h
+│   │   ├── mouser.h
+│   │   ├── mrdo.h
+│   │   ├── mrflea.h
+│   │   ├── mrjong.h
+│   │   ├── ms32.h
+│   │   ├── mugsmash.h
+│   │   ├── munchmo.h
+│   │   ├── mw8080bw.h
+│   │   ├── mystston.h
+│   │   ├── n64.h
+│   │   ├── n8080.h
+│   │   ├── namcoic.h
+│   │   ├── namcona1.h
+│   │   ├── namconb1.h
+│   │   ├── namcond1.h
+│   │   ├── namcos1.h
+│   │   ├── namcos2.h
+│   │   ├── namcos21.h
+│   │   ├── namcos22.h
+│   │   ├── naomi.h
+│   │   ├── naomibd.h
+│   │   ├── nb1413m3.h
+│   │   ├── nbmj8688.h
+│   │   ├── nbmj8891.h
+│   │   ├── nbmj8991.h
+│   │   ├── nbmj9195.h
+│   │   ├── nemesis.h
+│   │   ├── neogeo.h
+│   │   ├── news.h
+│   │   ├── ninjakd2.h
+│   │   ├── ninjaw.h
+│   │   ├── nitedrvr.h
+│   │   ├── niyanpai.h
+│   │   ├── nmk16.h
+│   │   ├── norautp.h
+│   │   ├── nova2001.h
+│   │   ├── nycaptor.h
+│   │   ├── offtwall.h
+│   │   ├── ohmygod.h
+│   │   ├── ojankohs.h
+│   │   ├── oneshot.h
+│   │   ├── opwolf.h
+│   │   ├── orbit.h
+│   │   ├── othldrby.h
+│   │   ├── othunder.h
+│   │   ├── overdriv.h
+│   │   ├── pacman.h
+│   │   ├── pandoras.h
+│   │   ├── paradise.h
+│   │   ├── parodius.h
+│   │   ├── pass.h
+│   │   ├── pbaction.h
+│   │   ├── pgm.h
+│   │   ├── phoenix.h
+│   │   ├── pitnrun.h
+│   │   ├── pk8000.h
+│   │   ├── pktgaldx.h
+│   │   ├── playch10.h
+│   │   ├── playmark.h
+│   │   ├── plygonet.h
+│   │   ├── polepos.h
+│   │   ├── policetr.h
+│   │   ├── polyplay.h
+│   │   ├── poolshrk.h
+│   │   ├── popper.h
+│   │   ├── psikyo.h
+│   │   ├── psikyo4.h
+│   │   ├── psikyosh.h
+│   │   ├── psx.h
+│   │   ├── pushman.h
+│   │   ├── qix.h
+│   │   ├── raiden2.h
+│   │   ├── rainbow.h
+│   │   ├── rampart.h
+│   │   ├── rastan.h
+│   │   ├── realbrk.h
+│   │   ├── redalert.h
+│   │   ├── relief.h
+│   │   ├── retofinv.h
+│   │   ├── rockrage.h
+│   │   ├── rohga.h
+│   │   ├── rollerg.h
+│   │   ├── rungun.h
+│   │   ├── sbugger.h
+│   │   ├── sderby.h
+│   │   ├── segag80r.h
+│   │   ├── segag80v.h
+│   │   ├── segamsys.h
+│   │   ├── segas16.h
+│   │   ├── segas24.h
+│   │   ├── segas32.h
+│   │   ├── sei_crtc.h
+│   │   ├── seibuspi.h
+│   │   ├── senjyo.h
+│   │   ├── seta.h
+│   │   ├── seta2.h
+│   │   ├── sf.h
+│   │   ├── shadfrce.h
+│   │   ├── shootout.h
+│   │   ├── shuuz.h
+│   │   ├── sidearms.h
+│   │   ├── sidepckt.h
+│   │   ├── silkroad.h
+│   │   ├── simpl156.h
+│   │   ├── simpsons.h
+│   │   ├── skullxbo.h
+│   │   ├── skydiver.h
+│   │   ├── skyfox.h
+│   │   ├── skyraid.h
+│   │   ├── slapfght.h
+│   │   ├── slapshot.h
+│   │   ├── slapstic.h
+│   │   ├── snes.h
+│   │   ├── snk.h
+│   │   ├── snk6502.h
+│   │   ├── sonson.h
+│   │   ├── spacefb.h
+│   │   ├── spbactn.h
+│   │   ├── spiders.h
+│   │   ├── sprint2.h
+│   │   ├── sprint8.h
+│   │   ├── spy.h
+│   │   ├── srmp2.h
+│   │   ├── sslam.h
+│   │   ├── sspeedr.h
+│   │   ├── ssv.h
+│   │   ├── st0016.h
+│   │   ├── stactics.h
+│   │   ├── starfire.h
+│   │   ├── starshp1.h
+│   │   ├── starwars.h
+│   │   ├── stfight.h
+│   │   ├── stlforce.h
+│   │   ├── stv.h
+│   │   ├── subs.h
+│   │   ├── suna8.h
+│   │   ├── supbtime.h
+│   │   ├── suprnova.h
+│   │   ├── suprridr.h
+│   │   ├── suprslam.h
+│   │   ├── surpratk.h
+│   │   ├── system16.h
+│   │   ├── tail2nos.h
+│   │   ├── taito_b.h
+│   │   ├── taito_f2.h
+│   │   ├── taito_f3.h
+│   │   ├── taito_h.h
+│   │   ├── taito_l.h
+│   │   ├── taito_o.h
+│   │   ├── taito_z.h
+│   │   ├── taitoair.h
+│   │   ├── taitoipt.h
+│   │   ├── taitojc.h
+│   │   ├── taitosj.h
+│   │   ├── tank8.h
+│   │   ├── taotaido.h
+│   │   ├── targ.h
+│   │   ├── tatsumi.h
+│   │   ├── taxidrvr.h
+│   │   ├── tecmosys.h
+│   │   ├── tetrisp2.h
+│   │   ├── thedeep.h
+│   │   ├── thunderj.h
+│   │   ├── thunderx.h
+│   │   ├── tiamc1.h
+│   │   ├── timeplt.h
+│   │   ├── tmnt.h
+│   │   ├── tnzs.h
+│   │   ├── toaplan1.h
+│   │   ├── toaplan2.h
+│   │   ├── toaplipt.h
+│   │   ├── toobin.h
+│   │   ├── topspeed.h
+│   │   ├── toypop.h
+│   │   ├── trackfld.h
+│   │   ├── triplhnt.h
+│   │   ├── tubep.h
+│   │   ├── tumbleb.h
+│   │   ├── tumblep.h
+│   │   ├── tunhunt.h
+│   │   ├── turbo.h
+│   │   ├── twin16.h
+│   │   ├── twincobr.h
+│   │   ├── tx1.h
+│   │   ├── ultraman.h
+│   │   ├── ultratnk.h
+│   │   ├── unico.h
+│   │   ├── vaportra.h
+│   │   ├── vastar.h
+│   │   ├── vball.h
+│   │   ├── vendetta.h
+│   │   ├── vertigo.h
+│   │   ├── vicdual.h
+│   │   ├── victory.h
+│   │   ├── videopin.h
+│   │   ├── vindictr.h
+│   │   ├── volfied.h
+│   │   ├── vsnes.h
+│   │   ├── warpwarp.h
+│   │   ├── warriorb.h
+│   │   ├── wc90.h
+│   │   ├── welltris.h
+│   │   ├── wgp.h
+│   │   ├── williams.h
+│   │   ├── wiping.h
+│   │   ├── wrally.h
+│   │   ├── wwfsstar.h
+│   │   ├── wwfwfest.h
+│   │   ├── xexex.h
+│   │   ├── xmen.h
+│   │   ├── xybots.h
+│   │   ├── xyonix.h
+│   │   ├── yunsun16.h
+│   │   ├── yunsung8.h
+│   │   ├── zaxxon.h
+│   │   └── zerozone.h
+│   ├── layout
+│   │   ├── 280zzzap.lay
+│   │   ├── abaseb.lay
+│   │   ├── ampoker2.lay
+│   │   ├── aristmk4.lay
+│   │   ├── armora.lay
+│   │   ├── atarifb.lay
+│   │   ├── atarifb4.lay
+│   │   ├── avalnche.lay
+│   │   ├── awpdmd.lay
+│   │   ├── awpvid14.lay
+│   │   ├── awpvid16.lay
+│   │   ├── babydad.lay
+│   │   ├── babypkr.lay
+│   │   ├── bfm_sc1.lay
+│   │   ├── bfm_sc2.lay
+│   │   ├── bigdeal.lay
+│   │   ├── blckjack.lay
+│   │   ├── buckrog.lay
+│   │   ├── buggybjr.lay
+│   │   ├── buggyboy.lay
+│   │   ├── buggychl.lay
+│   │   ├── bzone.lay
+│   │   ├── cardline.lay
+│   │   ├── cbombers.lay
+│   │   ├── cdi.lay
+│   │   ├── changela.lay
+│   │   ├── chqflag.lay
+│   │   ├── circus.lay
+│   │   ├── clowns.lay
+│   │   ├── connect4.lay
+│   │   ├── contcirc.lay
+│   │   ├── copsnrob.lay
+│   │   ├── crash.lay
+│   │   ├── crsbingo.lay
+│   │   ├── crusnexo.lay
+│   │   ├── darius.lay
+│   │   ├── dblaxle.lay
+│   │   ├── deadeye.lay
+│   │   ├── depthch.lay
+│   │   ├── dlair.lay
+│   │   ├── drwho.lay
+│   │   ├── elecyoyo.lay
+│   │   ├── fashion.lay
+│   │   ├── finallap.lay
+│   │   ├── firebeat.lay
+│   │   ├── galaxi.lay
+│   │   ├── gamball.lay
+│   │   ├── geebee.lay
+│   │   ├── gldncrwn.lay
+│   │   ├── goldnpkr.lay
+│   │   ├── gorf.lay
+│   │   ├── grchamp.lay
+│   │   ├── gridiron.lay
+│   │   ├── gypsyjug.lay
+│   │   ├── igspoker.lay
+│   │   ├── invad2ct.lay
+│   │   ├── invaders.lay
+│   │   ├── invrvnge.lay
+│   │   ├── jollycrd.lay
+│   │   ├── lagunar.lay
+│   │   ├── lazercmd.lay
+│   │   ├── luckgrln.lay
+│   │   ├── lucky74.lay
+│   │   ├── lucky8.lay
+│   │   ├── maxaflex.lay
+│   │   ├── mil4000.lay
+│   │   ├── mpoker.lay
+│   │   ├── mpu4.lay
+│   │   ├── namcofl.lay
+│   │   ├── nbmj8688.lay
+│   │   ├── neogeo.lay
+│   │   ├── noraut11.lay
+│   │   ├── noraut12.lay
+│   │   ├── outrun.lay
+│   │   ├── overdriv.lay
+│   │   ├── paradice.lay
+│   │   ├── pdrift.lay
+│   │   ├── pe_bjack.lay
+│   │   ├── pe_keno.lay
+│   │   ├── pe_poker.lay
+│   │   ├── pe_schip.lay
+│   │   ├── pe_slots.lay
+│   │   ├── peplus.lay
+│   │   ├── pirpok2.lay
+│   │   ├── pmpoker.lay
+│   │   ├── pmroulet.lay
+│   │   ├── poker41.lay
+│   │   ├── pokio.lay
+│   │   ├── polepos.lay
+│   │   ├── pulltabs.lay
+│   │   ├── pyramid.lay
+│   │   ├── quintoon.lay
+│   │   ├── radr.lay
+│   │   ├── re900.lay
+│   │   ├── rocknms.lay
+│   │   ├── roul.lay
+│   │   ├── roundup5.lay
+│   │   ├── royalcrd.lay
+│   │   ├── sbrkout.lay
+│   │   ├── sderby.lay
+│   │   ├── sgsafari.lay
+│   │   ├── sharkpy.lay
+│   │   ├── sharkpye.lay
+│   │   ├── shuttlei.lay
+│   │   ├── sidewndr.lay
+│   │   ├── sigmapkr.lay
+│   │   ├── slots.lay
+│   │   ├── sltblgpo.lay
+│   │   ├── sltblgtk.lay
+│   │   ├── smoto.lay
+│   │   ├── snookr10.lay
+│   │   ├── solarq.lay
+│   │   ├── sos.lay
+│   │   ├── spacewin.lay
+│   │   ├── spacwalk.lay
+│   │   ├── sspeedr.lay
+│   │   ├── sstrangr.lay
+│   │   ├── stactics.lay
+│   │   ├── starcas.lay
+│   │   ├── stepstag.lay
+│   │   ├── stisub.lay
+│   │   ├── stocker.lay
+│   │   ├── subroc3d.lay
+│   │   ├── superchs.lay
+│   │   ├── tceptor2.lay
+│   │   ├── tenpindx.lay
+│   │   ├── tinv2650.lay
+│   │   ├── tisub.lay
+│   │   ├── topracer.lay
+│   │   ├── topspeed.lay
+│   │   ├── turbo.lay
+│   │   ├── turbotag.lay
+│   │   ├── tx1.lay
+│   │   ├── victor21.lay
+│   │   ├── victor5.lay
+│   │   ├── videocba.lay
+│   │   ├── videodad.lay
+│   │   ├── videopin.lay
+│   │   ├── videopkr.lay
+│   │   └── wecleman.lay
+│   ├── machine
+│   │   ├── acitya.c
+│   │   ├── ajax.c
+│   │   ├── amiga.c
+│   │   ├── archimds.c
+│   │   ├── arkanoid.c
+│   │   ├── asic65.c
+│   │   ├── asic65.h
+│   │   ├── asteroid.c
+│   │   ├── atari.c
+│   │   ├── atari_vg.c
+│   │   ├── atari_vg.h
+│   │   ├── atarifb.c
+│   │   ├── atarigen.c
+│   │   ├── atarigen.h
+│   │   ├── bagman.c
+│   │   ├── balsente.c
+│   │   ├── beezer.c
+│   │   ├── bfm_bd1.c
+│   │   ├── bfm_bd1.h
+│   │   ├── bigevglf.c
+│   │   ├── bonzeadv.c
+│   │   ├── bsktball.c
+│   │   ├── btime.c
+│   │   ├── bublbobl.c
+│   │   ├── buggychl.c
+│   │   ├── carpolo.c
+│   │   ├── cchasm.c
+│   │   ├── cchip.c
+│   │   ├── cclimber.c
+│   │   ├── chaknpop.c
+│   │   ├── copsnrob.c
+│   │   ├── cps2crpt.c
+│   │   ├── cubocd32.c
+│   │   ├── cx4data.c
+│   │   ├── cx4fn.c
+│   │   ├── cx4oam.c
+│   │   ├── cx4ops.c
+│   │   ├── dc.c
+│   │   ├── dec0.c
+│   │   ├── deco102.c
+│   │   ├── deco156.c
+│   │   ├── decocass.c
+│   │   ├── decocass.h
+│   │   ├── decocrpt.c
+│   │   ├── decoprot.c
+│   │   ├── docastle.c
+│   │   ├── fd1089.c
+│   │   ├── fd1089.h
+│   │   ├── fd1094.c
+│   │   ├── fd1094.h
+│   │   ├── fddebug.c
+│   │   ├── fddebug.h
+│   │   ├── flstory.c
+│   │   ├── gaelco2.c
+│   │   ├── gaelcrpt.c
+│   │   ├── galaxold.c
+│   │   ├── gaplus.c
+│   │   ├── gdcrypt.c
+│   │   ├── harddriv.c
+│   │   ├── irem_cpu.c
+│   │   ├── irem_cpu.h
+│   │   ├── irobot.c
+│   │   ├── jumpshot.c
+│   │   ├── kabuki.c
+│   │   ├── kaneko16.c
+│   │   ├── kanekotb.h
+│   │   ├── konami1.c
+│   │   ├── konami1.h
+│   │   ├── konamigx.c
+│   │   ├── konppc.c
+│   │   ├── konppc.h
+│   │   ├── leland.c
+│   │   ├── lkage.c
+│   │   ├── lsasquad.c
+│   │   ├── m68kfmly.c
+│   │   ├── m68kfmly.h
+│   │   ├── maniach.c
+│   │   ├── mathbox.c
+│   │   ├── mathbox.h
+│   │   ├── mc8123.c
+│   │   ├── mc8123.h
+│   │   ├── mcr.c
+│   │   ├── meters.c
+│   │   ├── meters.h
+│   │   ├── mexico86.c
+│   │   ├── mhavoc.c
+│   │   ├── micro3d.c
+│   │   ├── midtunit.c
+│   │   ├── midwayic.c
+│   │   ├── midwayic.h
+│   │   ├── midwunit.c
+│   │   ├── midyunit.c
+│   │   ├── model1.c
+│   │   ├── model3.c
+│   │   ├── mw8080bw.c
+│   │   ├── n64.c
+│   │   ├── namco06.c
+│   │   ├── namco06.h
+│   │   ├── namco50.c
+│   │   ├── namco50.h
+│   │   ├── namco51.c
+│   │   ├── namco51.h
+│   │   ├── namco53.c
+│   │   ├── namco53.h
+│   │   ├── namcoio.c
+│   │   ├── namcoio.h
+│   │   ├── namcond1.c
+│   │   ├── namcos1.c
+│   │   ├── namcos2.c
+│   │   ├── naomi.c
+│   │   ├── naomibd.c
+│   │   ├── nb1413m3.c
+│   │   ├── neoboot.c
+│   │   ├── neocrypt.c
+│   │   ├── neoprot.c
+│   │   ├── nitedrvr.c
+│   │   ├── nmk004.c
+│   │   ├── nmk004.h
+│   │   ├── nmk112.c
+│   │   ├── nmk112.h
+│   │   ├── nycaptor.c
+│   │   ├── opwolf.c
+│   │   ├── pacplus.c
+│   │   ├── pcecommn.c
+│   │   ├── pcecommn.h
+│   │   ├── pckeybrd.c
+│   │   ├── pcshare.c
+│   │   ├── pgmcrypt.c
+│   │   ├── pgmprot.c
+│   │   ├── pitnrun.c
+│   │   ├── playch10.c
+│   │   ├── psx.c
+│   │   ├── pxa255.h
+│   │   ├── qix.c
+│   │   ├── r2crypt.c
+│   │   ├── rainbow.c
+│   │   ├── retofinv.c
+│   │   ├── s16fd.c
+│   │   ├── s24fd.c
+│   │   ├── scramble.c
+│   │   ├── scudsp.c
+│   │   ├── scudsp.h
+│   │   ├── segacrp2.c
+│   │   ├── segacrp2.h
+│   │   ├── segacrpt.c
+│   │   ├── segacrpt.h
+│   │   ├── segag80.c
+│   │   ├── segaic16.c
+│   │   ├── segaic16.h
+│   │   ├── segas24.c
+│   │   ├── segas32.c
+│   │   ├── seibuspi.c
+│   │   ├── seicop.c
+│   │   ├── seicop.h
+│   │   ├── simpsons.c
+│   │   ├── slapfght.c
+│   │   ├── slapstic.c
+│   │   ├── slikshot.c
+│   │   ├── snes.c
+│   │   ├── snes7110.c
+│   │   ├── snesbsx.c
+│   │   ├── snescx4.c
+│   │   ├── snescx4.h
+│   │   ├── snesdsp1.c
+│   │   ├── snesdsp2.c
+│   │   ├── snesdsp3.c
+│   │   ├── snesdsp4.c
+│   │   ├── snesdsp4.h
+│   │   ├── snesobc1.c
+│   │   ├── snesrtc.c
+│   │   ├── snessdd1.c
+│   │   ├── snesst10.c
+│   │   ├── spisprit.c
+│   │   ├── starwars.c
+│   │   ├── steppers.c
+│   │   ├── steppers.h
+│   │   ├── stfight.c
+│   │   ├── stvcd.c
+│   │   ├── stvcd.h
+│   │   ├── stvprot.c
+│   │   ├── stvprot.h
+│   │   ├── subs.c
+│   │   ├── tait8741.c
+│   │   ├── tait8741.h
+│   │   ├── taitoio.c
+│   │   ├── taitoio.h
+│   │   ├── taitosj.c
+│   │   ├── tatsumi.c
+│   │   ├── tecmosys.c
+│   │   ├── theglobp.c
+│   │   ├── ticket.c
+│   │   ├── ticket.h
+│   │   ├── tnzs.c
+│   │   ├── toaplan1.c
+│   │   ├── twincobr.c
+│   │   ├── tx1.c
+│   │   ├── vertigo.c
+│   │   ├── volfied.c
+│   │   ├── vsnes.c
+│   │   ├── williams.c
+│   │   ├── wrally.c
+│   │   ├── xevious.c
+│   │   ├── znsec.c
+│   │   ├── znsec.h
+│   │   ├── zs01.c
+│   │   └── zs01.h
+│   ├── mame.mak
+│   ├── mamedriv.c
+│   ├── tiny.c
+│   ├── tiny.mak
+│   └── video
+│       ├── 1942.c
+│       ├── 1943.c
+│       ├── 20pacgal.c
+│       ├── 40love.c
+│       ├── 4enraya.c
+│       ├── 8080bw.c
+│       ├── 88games.c
+│       ├── actfancr.c
+│       ├── aeroboto.c
+│       ├── aerofgt.c
+│       ├── airbustr.c
+│       ├── ajax.c
+│       ├── aliens.c
+│       ├── alpha68k.c
+│       ├── ambush.c
+│       ├── amiga.c
+│       ├── amigaaga.c
+│       ├── ampoker2.c
+│       ├── amspdwy.c
+│       ├── angelkds.c
+│       ├── antic.c
+│       ├── appoooh.c
+│       ├── aquarium.c
+│       ├── arabian.c
+│       ├── arcadecl.c
+│       ├── argus.c
+│       ├── arkanoid.c
+│       ├── armedf.c
+│       ├── artmagic.c
+│       ├── ashnojoe.c
+│       ├── asterix.c
+│       ├── astrocde.c
+│       ├── asuka.c
+│       ├── atari.c
+│       ├── atarifb.c
+│       ├── atarig1.c
+│       ├── atarig42.c
+│       ├── atarigt.c
+│       ├── atarigx2.c
+│       ├── atarimo.c
+│       ├── atarimo.h
+│       ├── atarirle.c
+│       ├── atarirle.h
+│       ├── atarisy1.c
+│       ├── atarisy2.c
+│       ├── atetris.c
+│       ├── avgdvg.c
+│       ├── avgdvg.h
+│       ├── awpvid.c
+│       ├── awpvid.h
+│       ├── aztarac.c
+│       ├── badlands.c
+│       ├── bagman.c
+│       ├── balsente.c
+│       ├── bankp.c
+│       ├── baraduke.c
+│       ├── batman.c
+│       ├── battlane.c
+│       ├── battlera.c
+│       ├── battlex.c
+│       ├── battlnts.c
+│       ├── bbusters.c
+│       ├── beathead.c
+│       ├── beezer.c
+│       ├── bfm_adr2.c
+│       ├── bfm_adr2.h
+│       ├── bfm_dm01.c
+│       ├── bfm_dm01.h
+│       ├── bigevglf.c
+│       ├── bigstrkb.c
+│       ├── bionicc.c
+│       ├── bishi.c
+│       ├── bking.c
+│       ├── bladestl.c
+│       ├── blktiger.c
+│       ├── blmbycar.c
+│       ├── blockade.c
+│       ├── blockhl.c
+│       ├── blockout.c
+│       ├── bloodbro.c
+│       ├── blstroid.c
+│       ├── blueprnt.c
+│       ├── bogeyman.c
+│       ├── bombjack.c
+│       ├── boogwing.c
+│       ├── bosco.c
+│       ├── bottom9.c
+│       ├── brkthru.c
+│       ├── bsktball.c
+│       ├── btime.c
+│       ├── btoads.c
+│       ├── bublbobl.c
+│       ├── buggychl.c
+│       ├── bwing.c
+│       ├── cabal.c
+│       ├── calomega.c
+│       ├── canyon.c
+│       ├── capbowl.c
+│       ├── carjmbre.c
+│       ├── carpolo.c
+│       ├── cave.c
+│       ├── cbasebal.c
+│       ├── cbuster.c
+│       ├── ccastles.c
+│       ├── cchasm.c
+│       ├── cclimber.c
+│       ├── centiped.c
+│       ├── chaknpop.c
+│       ├── champbas.c
+│       ├── changela.c
+│       ├── cheekyms.c
+│       ├── chqflag.c
+│       ├── cidelsa.c
+│       ├── cinemat.c
+│       ├── circus.c
+│       ├── circusc.c
+│       ├── cischeat.c
+│       ├── citycon.c
+│       ├── cloak.c
+│       ├── cloud9.c
+│       ├── clshroad.c
+│       ├── cninja.c
+│       ├── combatsc.c
+│       ├── commando.c
+│       ├── compgolf.c
+│       ├── contra.c
+│       ├── cop01.c
+│       ├── copsnrob.c
+│       ├── cosmic.c
+│       ├── cps1.c
+│       ├── crbaloon.c
+│       ├── crgolf.c
+│       ├── crimfght.c
+│       ├── crospang.c
+│       ├── crshrace.c
+│       ├── cvs.c
+│       ├── cyberbal.c
+│       ├── darius.c
+│       ├── darkmist.c
+│       ├── darkseal.c
+│       ├── dassault.c
+│       ├── dbz.c
+│       ├── dc.c
+│       ├── dcheese.c
+│       ├── dcon.c
+│       ├── dday.c
+│       ├── ddragon.c
+│       ├── ddragon3.c
+│       ├── ddribble.c
+│       ├── deadang.c
+│       ├── dec0.c
+│       ├── dec8.c
+│       ├── deco16ic.c
+│       ├── deco16ic.h
+│       ├── deco32.c
+│       ├── deco_mlc.c
+│       ├── decocass.c
+│       ├── deniam.c
+│       ├── dietgo.c
+│       ├── digdug.c
+│       ├── djboy.c
+│       ├── djmain.c
+│       ├── dkong.c
+│       ├── docastle.c
+│       ├── dogfgt.c
+│       ├── dooyong.c
+│       ├── dragrace.c
+│       ├── drgnmst.c
+│       ├── dribling.c
+│       ├── drmicro.c
+│       ├── dynax.c
+│       ├── dynduke.c
+│       ├── eolith.c
+│       ├── epos.c
+│       ├── eprom.c
+│       ├── equites.c
+│       ├── esd16.c
+│       ├── espial.c
+│       ├── esripsys.c
+│       ├── exedexes.c
+│       ├── exerion.c
+│       ├── exidy.c
+│       ├── exidy440.c
+│       ├── exprraid.c
+│       ├── exterm.c
+│       ├── exzisus.c
+│       ├── f1gp.c
+│       ├── fantland.c
+│       ├── fastfred.c
+│       ├── fastlane.c
+│       ├── fcombat.c
+│       ├── fgoal.c
+│       ├── finalizr.c
+│       ├── firetrap.c
+│       ├── firetrk.c
+│       ├── fitfight.c
+│       ├── flkatck.c
+│       ├── flower.c
+│       ├── flstory.c
+│       ├── foodf.c
+│       ├── freekick.c
+│       ├── fromanc2.c
+│       ├── fromance.c
+│       ├── funkybee.c
+│       ├── funkyjet.c
+│       ├── funworld.c
+│       ├── funybubl.c
+│       ├── fuukifg2.c
+│       ├── fuukifg3.c
+│       ├── gaelco.c
+│       ├── gaelco2.c
+│       ├── gaelco3d.c
+│       ├── gaiden.c
+│       ├── galaga.c
+│       ├── galastrm.c
+│       ├── galaxian.c
+│       ├── galaxold.c
+│       ├── galivan.c
+│       ├── galpani2.c
+│       ├── galpanic.c
+│       ├── galspnbl.c
+│       ├── gameplan.c
+│       ├── gaplus.c
+│       ├── gatron.c
+│       ├── gauntlet.c
+│       ├── gberet.c
+│       ├── gbusters.c
+│       ├── gcpinbal.c
+│       ├── genesis.c
+│       ├── gijoe.c
+│       ├── ginganin.c
+│       ├── gladiatr.c
+│       ├── glass.c
+│       ├── gng.c
+│       ├── goal92.c
+│       ├── goindol.c
+│       ├── goldstar.c
+│       ├── gomoku.c
+│       ├── gotcha.c
+│       ├── gottlieb.c
+│       ├── gotya.c
+│       ├── gp9001.c
+│       ├── gp9001.h
+│       ├── gradius3.c
+│       ├── grchamp.c
+│       ├── gridlee.c
+│       ├── groundfx.c
+│       ├── gstriker.c
+│       ├── gsword.c
+│       ├── gtia.c
+│       ├── gtia.h
+│       ├── gticlub.c
+│       ├── gticlub.h
+│       ├── gumbo.c
+│       ├── gunbustr.c
+│       ├── gundealr.c
+│       ├── gunsmoke.c
+│       ├── gyruss.c
+│       ├── hanaawas.c
+│       ├── harddriv.c
+│       ├── hcastle.c
+│       ├── hexion.c
+│       ├── higemaru.c
+│       ├── himesiki.c
+│       ├── hnayayoi.c
+│       ├── hng64.c
+│       ├── holeland.c
+│       ├── homedata.c
+│       ├── homerun.c
+│       ├── hyhoo.c
+│       ├── hyperspt.c
+│       ├── hyprduel.c
+│       ├── ikki.c
+│       ├── inufuku.c
+│       ├── iqblock.c
+│       ├── irobot.c
+│       ├── ironhors.c
+│       ├── itech32.c
+│       ├── itech8.c
+│       ├── jack.c
+│       ├── jackal.c
+│       ├── jagblit.c
+│       ├── jagblit.h
+│       ├── jagobj.c
+│       ├── jaguar.c
+│       ├── jailbrek.c
+│       ├── jalblend.c
+│       ├── jalblend.h
+│       ├── jedi.c
+│       ├── jpmimpct.c
+│       ├── kan_panb.c
+│       ├── kan_panb.h
+│       ├── kan_pand.c
+│       ├── kan_pand.h
+│       ├── kaneko16.c
+│       ├── kangaroo.c
+│       ├── karnov.c
+│       ├── kchamp.c
+│       ├── kickgoal.c
+│       ├── kingobox.c
+│       ├── klax.c
+│       ├── kncljoe.c
+│       ├── konamigx.c
+│       ├── konamiic.c
+│       ├── konamiic.h
+│       ├── konicdev.c
+│       ├── konicdev.h
+│       ├── kopunch.c
+│       ├── ksayakyu.c
+│       ├── kyugo.c
+│       ├── labyrunr.c
+│       ├── ladybug.c
+│       ├── ladyfrog.c
+│       ├── lasso.c
+│       ├── lastduel.c
+│       ├── lazercmd.c
+│       ├── legionna.c
+│       ├── leland.c
+│       ├── lemmings.c
+│       ├── lethal.c
+│       ├── lethalj.c
+│       ├── liberate.c
+│       ├── liberatr.c
+│       ├── lkage.c
+│       ├── lockon.c
+│       ├── lordgun.c
+│       ├── lsasquad.c
+│       ├── lucky74.c
+│       ├── lvcards.c
+│       ├── lwings.c
+│       ├── m10.c
+│       ├── m107.c
+│       ├── m3raster.c
+│       ├── m52.c
+│       ├── m57.c
+│       ├── m58.c
+│       ├── m62.c
+│       ├── m72.c
+│       ├── m90.c
+│       ├── m92.c
+│       ├── macrossp.c
+│       ├── madalien.c
+│       ├── madmotor.c
+│       ├── magmax.c
+│       ├── mainevt.c
+│       ├── mainsnk.c
+│       ├── malzak.c
+│       ├── mappy.c
+│       ├── marineb.c
+│       ├── mario.c
+│       ├── markham.c
+│       ├── matmania.c
+│       ├── mcatadv.c
+│       ├── mcr.c
+│       ├── mcr3.c
+│       ├── mcr68.c
+│       ├── meadows.c
+│       ├── megasys1.c
+│       ├── megazone.c
+│       ├── mermaid.c
+│       ├── metlclsh.c
+│       ├── metro.c
+│       ├── mexico86.c
+│       ├── micro3d.c
+│       ├── midtunit.c
+│       ├── midvunit.c
+│       ├── midyunit.c
+│       ├── midzeus.c
+│       ├── midzeus2.c
+│       ├── mikie.c
+│       ├── mitchell.c
+│       ├── mjkjidai.c
+│       ├── model1.c
+│       ├── model2.c
+│       ├── model2rd.c
+│       ├── model3.c
+│       ├── momoko.c
+│       ├── moo.c
+│       ├── mosaic.c
+│       ├── mouser.c
+│       ├── mrdo.c
+│       ├── mrflea.c
+│       ├── mrjong.c
+│       ├── ms32.c
+│       ├── msisaac.c
+│       ├── mugsmash.c
+│       ├── munchmo.c
+│       ├── mustache.c
+│       ├── mw8080bw.c
+│       ├── mystston.c
+│       ├── mystwarr.c
+│       ├── n64.c
+│       ├── n64.h
+│       ├── n8080.c
+│       ├── namcofl.c
+│       ├── namcona1.c
+│       ├── namconb1.c
+│       ├── namcos1.c
+│       ├── namcos2.c
+│       ├── namcos21.c
+│       ├── namcos22.c
+│       ├── namcos86.c
+│       ├── naughtyb.c
+│       ├── nbmj8688.c
+│       ├── nbmj8891.c
+│       ├── nbmj8900.c
+│       ├── nbmj8991.c
+│       ├── nbmj9195.c
+│       ├── nemesis.c
+│       ├── neogeo.c
+│       ├── news.c
+│       ├── ninjakd2.c
+│       ├── ninjaw.c
+│       ├── nitedrvr.c
+│       ├── niyanpai.c
+│       ├── nmk16.c
+│       ├── nova2001.c
+│       ├── nycaptor.c
+│       ├── offtwall.c
+│       ├── ohmygod.c
+│       ├── ojankohs.c
+│       ├── oneshot.c
+│       ├── orbit.c
+│       ├── othldrby.c
+│       ├── othunder.c
+│       ├── overdriv.c
+│       ├── pacland.c
+│       ├── pacman.c
+│       ├── pandoras.c
+│       ├── paradise.c
+│       ├── parodius.c
+│       ├── pass.c
+│       ├── pastelg.c
+│       ├── pbaction.c
+│       ├── pcktgal.c
+│       ├── pgm.c
+│       ├── phoenix.c
+│       ├── pingpong.c
+│       ├── pirates.c
+│       ├── pitnrun.c
+│       ├── pk8000.c
+│       ├── pktgaldx.c
+│       ├── playch10.c
+│       ├── playmark.c
+│       ├── plygonet.c
+│       ├── pokechmp.c
+│       ├── polepos.c
+│       ├── policetr.c
+│       ├── polyplay.c
+│       ├── poolshrk.c
+│       ├── pooyan.c
+│       ├── popeye.c
+│       ├── popper.c
+│       ├── portrait.c
+│       ├── powerins.c
+│       ├── ppu2c0x.c
+│       ├── ppu2c0x.h
+│       ├── prehisle.c
+│       ├── psikyo.c
+│       ├── psikyo4.c
+│       ├── psikyosh.c
+│       ├── psx.c
+│       ├── psychic5.c
+│       ├── punchout.c
+│       ├── pushman.c
+│       ├── qdrmfgp.c
+│       ├── qix.c
+│       ├── quasar.c
+│       ├── quizdna.c
+│       ├── quizpani.c
+│       ├── raiden.c
+│       ├── rallyx.c
+│       ├── rampart.c
+│       ├── rastan.c
+│       ├── rdpblend.c
+│       ├── rdpblend.h
+│       ├── rdpfb.c
+│       ├── rdpfb.h
+│       ├── rdpfetch.c
+│       ├── rdpfetch.h
+│       ├── rdpfiltr.c
+│       ├── rdpfrect.c
+│       ├── rdpfrect.h
+│       ├── rdpspn16.c
+│       ├── rdpspn16.h
+│       ├── rdptpipe.c
+│       ├── rdptpipe.h
+│       ├── rdptrect.c
+│       ├── rdptrect.h
+│       ├── rdptri.h
+│       ├── realbrk.c
+│       ├── redalert.c
+│       ├── redclash.c
+│       ├── relief.c
+│       ├── renegade.c
+│       ├── retofinv.c
+│       ├── rockrage.c
+│       ├── rocnrope.c
+│       ├── rohga.c
+│       ├── rollerg.c
+│       ├── rollrace.c
+│       ├── route16.c
+│       ├── rpunch.c
+│       ├── runaway.c
+│       ├── rungun.c
+│       ├── sauro.c
+│       ├── sbasketb.c
+│       ├── sbugger.c
+│       ├── scotrsht.c
+│       ├── sderby.c
+│       ├── sega16sp.c
+│       ├── segag80r.c
+│       ├── segag80v.c
+│       ├── segahang.c
+│       ├── segaic16.c
+│       ├── segaic16.h
+│       ├── segaic24.c
+│       ├── segaic24.h
+│       ├── segaorun.c
+│       ├── segas16a.c
+│       ├── segas16b.c
+│       ├── segas18.c
+│       ├── segas24.c
+│       ├── segas32.c
+│       ├── segaxbd.c
+│       ├── segaybd.c
+│       ├── sei_crtc.c
+│       ├── seibuspi.c
+│       ├── seicross.c
+│       ├── senjyo.c
+│       ├── seta.c
+│       ├── seta2.c
+│       ├── sf.c
+│       ├── shadfrce.c
+│       ├── shangha3.c
+│       ├── shangkid.c
+│       ├── shaolins.c
+│       ├── shisen.c
+│       ├── shootout.c
+│       ├── shuuz.c
+│       ├── sidearms.c
+│       ├── sidepckt.c
+│       ├── silkroad.c
+│       ├── simpl156.c
+│       ├── simpsons.c
+│       ├── skullxbo.c
+│       ├── skydiver.c
+│       ├── skyfox.c
+│       ├── skykid.c
+│       ├── skyraid.c
+│       ├── slapfght.c
+│       ├── slapshot.c
+│       ├── snes.c
+│       ├── snk.c
+│       ├── snk6502.c
+│       ├── snk68.c
+│       ├── snookr10.c
+│       ├── solomon.c
+│       ├── sonson.c
+│       ├── spacefb.c
+│       ├── spbactn.c
+│       ├── spcforce.c
+│       ├── spdodgeb.c
+│       ├── speedatk.c
+│       ├── speedbal.c
+│       ├── speedspn.c
+│       ├── splash.c
+│       ├── sprcros2.c
+│       ├── sprint2.c
+│       ├── sprint4.c
+│       ├── sprint8.c
+│       ├── spy.c
+│       ├── srmp2.c
+│       ├── srumbler.c
+│       ├── sshangha.c
+│       ├── sslam.c
+│       ├── ssozumo.c
+│       ├── sspeedr.c
+│       ├── ssrj.c
+│       ├── ssv.c
+│       ├── st0016.c
+│       ├── stactics.c
+│       ├── stadhero.c
+│       ├── starcrus.c
+│       ├── starfire.c
+│       ├── starshp1.c
+│       ├── stfight.c
+│       ├── stlforce.c
+│       ├── strnskil.c
+│       ├── stvvdp1.c
+│       ├── stvvdp2.c
+│       ├── subs.c
+│       ├── suna16.c
+│       ├── suna8.c
+│       ├── supbtime.c
+│       ├── superchs.c
+│       ├── superqix.c
+│       ├── suprloco.c
+│       ├── suprnova.c
+│       ├── suprridr.c
+│       ├── suprslam.c
+│       ├── surpratk.c
+│       ├── system1.c
+│       ├── system1.h
+│       ├── system16.c
+│       ├── tagteam.c
+│       ├── tail2nos.c
+│       ├── taito_b.c
+│       ├── taito_f2.c
+│       ├── taito_f3.c
+│       ├── taito_h.c
+│       ├── taito_l.c
+│       ├── taito_o.c
+│       ├── taito_z.c
+│       ├── taitoair.c
+│       ├── taitoic.c
+│       ├── taitoic.h
+│       ├── taitojc.c
+│       ├── taitosj.c
+│       ├── tank8.c
+│       ├── tankbatt.c
+│       ├── tankbust.c
+│       ├── taotaido.c
+│       ├── targeth.c
+│       ├── tatsumi.c
+│       ├── taxidrvr.c
+│       ├── tbowl.c
+│       ├── tceptor.c
+│       ├── tecmo.c
+│       ├── tecmo16.c
+│       ├── tehkanwc.c
+│       ├── terracre.c
+│       ├── tetrisp2.c
+│       ├── thedeep.c
+│       ├── thepit.c
+│       ├── thief.c
+│       ├── thoop2.c
+│       ├── thunderj.c
+│       ├── thunderx.c
+│       ├── tia.c
+│       ├── tia.h
+│       ├── tiamc1.c
+│       ├── tigeroad.c
+│       ├── timelimt.c
+│       ├── timeplt.c
+│       ├── tmnt.c
+│       ├── tnzs.c
+│       ├── toaplan1.c
+│       ├── toaplan2.c
+│       ├── toki.c
+│       ├── toobin.c
+│       ├── topspeed.c
+│       ├── toypop.c
+│       ├── tp84.c
+│       ├── trackfld.c
+│       ├── travrusa.c
+│       ├── triplhnt.c
+│       ├── truco.c
+│       ├── trucocl.c
+│       ├── tryout.c
+│       ├── tsamurai.c
+│       ├── tubep.c
+│       ├── tumbleb.c
+│       ├── tumblep.c
+│       ├── tunhunt.c
+│       ├── turbo.c
+│       ├── tutankhm.c
+│       ├── twin16.c
+│       ├── twincobr.c
+│       ├── tx1.c
+│       ├── ultraman.c
+│       ├── ultratnk.c
+│       ├── undrfire.c
+│       ├── unico.c
+│       ├── usgames.c
+│       ├── vaportra.c
+│       ├── vastar.c
+│       ├── vball.c
+│       ├── vdc.c
+│       ├── vdc.h
+│       ├── vendetta.c
+│       ├── vertigo.c
+│       ├── vicdual.c
+│       ├── victory.c
+│       ├── videopin.c
+│       ├── vigilant.c
+│       ├── vindictr.c
+│       ├── volfied.c
+│       ├── vrender0.c
+│       ├── vrender0.h
+│       ├── vsnes.c
+│       ├── vulgus.c
+│       ├── warpwarp.c
+│       ├── warriorb.c
+│       ├── wc90.c
+│       ├── wc90b.c
+│       ├── wecleman.c
+│       ├── welltris.c
+│       ├── wgp.c
+│       ├── williams.c
+│       ├── wiping.c
+│       ├── wiz.c
+│       ├── wolfpack.c
+│       ├── wrally.c
+│       ├── wwfsstar.c
+│       ├── wwfwfest.c
+│       ├── xain.c
+│       ├── xevious.c
+│       ├── xexex.c
+│       ├── xmen.c
+│       ├── xorworld.c
+│       ├── xxmissio.c
+│       ├── xybots.c
+│       ├── xyonix.c
+│       ├── ygv608.c
+│       ├── ygv608.h
+│       ├── yiear.c
+│       ├── yunsun16.c
+│       ├── yunsung8.c
+│       ├── zac2650.c
+│       ├── zaccaria.c
+│       ├── zaxxon.c
+│       ├── zerozone.c
+│       └── zodiack.c
+├── osd
+│   ├── droid-ios
+│   │   ├── bt_joy.c
+│   │   ├── bt_joy.h
+│   │   ├── build.mak
+│   │   ├── droid-ios.mak
+│   │   ├── myosd.h
+│   │   ├── netplay.c
+│   │   ├── netplay.h
+│   │   ├── opensl_snd.c
+│   │   ├── opensl_snd.h
+│   │   ├── osd-droid.c
+│   │   ├── osd-ios.c
+│   │   ├── osddir.c
+│   │   ├── osdfile.c
+│   │   ├── osdinput.c
+│   │   ├── osdinput.h
+│   │   ├── osdmain.c
+│   │   ├── osdos.c
+│   │   ├── osdos.h
+│   │   ├── osdsound.c
+│   │   ├── osdsound.h
+│   │   ├── osdsync.c
+│   │   ├── osdsync.h
+│   │   ├── osdvideo.c
+│   │   ├── osdvideo.h
+│   │   ├── osdwork.c
+│   │   ├── osinline.h
+│   │   ├── sixaxis.c
+│   │   ├── sixaxis.h
+│   │   ├── skt_netplay.c
+│   │   ├── skt_netplay.h
+│   │   ├── wiimote.c
+│   │   └── wiimote.h
+│   ├── osdcomm.h
+│   ├── osdcore.h
+│   ├── osdepend.h
+│   ├── osdmini
+│   │   ├── minidir.c
+│   │   ├── minifile.c
+│   │   ├── minimain.c
+│   │   ├── minimisc.c
+│   │   ├── minisync.c
+│   │   ├── minitime.c
+│   │   ├── miniwork.c
+│   │   ├── osdmini.mak
+│   │   └── osinline.h
+│   ├── sdl
+│   │   ├── README_SDL13.txt
+│   │   ├── SDL1211_opengl.h
+│   │   ├── SDLMain_tmpl.h
+│   │   ├── SDLMain_tmpl.m
+│   │   ├── blit13.h
+│   │   ├── build.mak
+│   │   ├── debug-cb.h
+│   │   ├── debug-cb.ign
+│   │   ├── debug-intf.c
+│   │   ├── debug-intf.h
+│   │   ├── debug-sup.c
+│   │   ├── debug-sup.h
+│   │   ├── debug.glade
+│   │   ├── debug.gladep
+│   │   ├── debugosx.h
+│   │   ├── debugosx.m
+│   │   ├── debugwin.c
+│   │   ├── debugwin.h
+│   │   ├── draw13.c
+│   │   ├── drawogl.c
+│   │   ├── drawsdl.c
+│   │   ├── dview.c
+│   │   ├── dview.h
+│   │   ├── gl_shader_mgr.c
+│   │   ├── gl_shader_mgr.h
+│   │   ├── gl_shader_tool.c
+│   │   ├── gl_shader_tool.h
+│   │   ├── input.c
+│   │   ├── input.h
+│   │   ├── keymaps
+│   │   │   ├── km-be.txt
+│   │   │   ├── km-ch.txt
+│   │   │   ├── km-de.txt
+│   │   │   ├── km-fr-OSX.txt
+│   │   │   ├── km-fr.txt
+│   │   │   └── km_it.txt
+│   │   ├── ledutil.sh
+│   │   ├── main.c
+│   │   ├── man
+│   │   │   ├── chdman.1
+│   │   │   ├── jedutil.1
+│   │   │   ├── ldplayer.1
+│   │   │   ├── ldverify.1
+│   │   │   ├── mame.1
+│   │   │   ├── romcmp.1
+│   │   │   └── testkeys.1
+│   │   ├── osd_opengl.h
+│   │   ├── osdsdl.h
+│   │   ├── osinline.h
+│   │   ├── osxutils.h
+│   │   ├── osxutils.m
+│   │   ├── output.c
+│   │   ├── output.h
+│   │   ├── sdl.mak
+│   │   ├── sdldir.c
+│   │   ├── sdlfile.c
+│   │   ├── sdlmain.c
+│   │   ├── sdlmisc_macosx.c
+│   │   ├── sdlmisc_os2.c
+│   │   ├── sdlmisc_unix.c
+│   │   ├── sdlmisc_win32.c
+│   │   ├── sdlos.h
+│   │   ├── sdlos_macosx.c
+│   │   ├── sdlos_os2.c
+│   │   ├── sdlos_unix.c
+│   │   ├── sdlos_win32.c
+│   │   ├── sdlprefix.h
+│   │   ├── sdlsync.h
+│   │   ├── sdlsync_ntc.c
+│   │   ├── sdlsync_os2.c
+│   │   ├── sdlsync_sdl.c
+│   │   ├── sdlsync_tc.c
+│   │   ├── sdlsync_win32.c
+│   │   ├── sdlwork.c
+│   │   ├── shader
+│   │   │   ├── genc.sh
+│   │   │   ├── glsl_bilinear.vsh
+│   │   │   ├── glsl_bilinear_idx16_lut.fsh
+│   │   │   ├── glsl_bilinear_idx16_lut.fsh.c
+│   │   │   ├── glsl_bilinear_rgb32_dir.fsh
+│   │   │   ├── glsl_bilinear_rgb32_dir.fsh.c
+│   │   │   ├── glsl_bilinear_rgb32_lut.fsh
+│   │   │   ├── glsl_bilinear_rgb32_lut.fsh.c
+│   │   │   ├── glsl_general.vsh
+│   │   │   ├── glsl_general.vsh.c
+│   │   │   ├── glsl_plain.vsh
+│   │   │   ├── glsl_plain_idx16_lut.fsh
+│   │   │   ├── glsl_plain_idx16_lut.fsh.c
+│   │   │   ├── glsl_plain_rgb32_dir.fsh
+│   │   │   ├── glsl_plain_rgb32_dir.fsh.c
+│   │   │   ├── glsl_plain_rgb32_lut.fsh
+│   │   │   └── glsl_plain_rgb32_lut.fsh.c
+│   │   ├── sound.c
+│   │   ├── strconv.c
+│   │   ├── strconv.h
+│   │   ├── testkeys.c
+│   │   ├── texcopy.c
+│   │   ├── texsrc.h
+│   │   ├── video.c
+│   │   ├── video.h
+│   │   ├── window.c
+│   │   └── window.h
+│   └── windows
+│       ├── d3d8intf.c
+│       ├── d3d9intf.c
+│       ├── d3dintf.h
+│       ├── debugwin.c
+│       ├── debugwin.h
+│       ├── drawd3d.c
+│       ├── drawdd.c
+│       ├── drawgdi.c
+│       ├── drawnone.c
+│       ├── eivc.h
+│       ├── eivcx86.h
+│       ├── input.c
+│       ├── input.h
+│       ├── ledutil.c
+│       ├── main.c
+│       ├── mame.man
+│       ├── mame.rc
+│       ├── multidef.h
+│       ├── osinline.h
+│       ├── output.c
+│       ├── output.h
+│       ├── sound.c
+│       ├── sound.h
+│       ├── strconv.c
+│       ├── strconv.h
+│       ├── vconv.c
+│       ├── video.c
+│       ├── video.h
+│       ├── winalloc.c
+│       ├── winclip.c
+│       ├── windir.c
+│       ├── window.c
+│       ├── window.h
+│       ├── windows.mak
+│       ├── winfile.c
+│       ├── winmain.c
+│       ├── winmain.h
+│       ├── winmisc.c
+│       ├── winprefix.h
+│       ├── winsync.c
+│       ├── wintime.c
+│       ├── winutf8.c
+│       ├── winutf8.h
+│       ├── winutil.c
+│       ├── winutil.h
+│       └── winwork.c
+├── tools
+│   ├── chdcd.c
+│   ├── chdcd.h
+│   ├── chdman.c
+│   ├── jedutil.c
+│   ├── ldresample.c
+│   ├── ldverify.c
+│   ├── regrep.c
+│   ├── romcmp.c
+│   ├── runtest.cmd
+│   ├── split.c
+│   ├── src2html.c
+│   ├── srcclean.c
+│   ├── tools.mak
+│   └── unidasm.c
+├── version.c
+└── x
+
+123 directories, 4258 files
